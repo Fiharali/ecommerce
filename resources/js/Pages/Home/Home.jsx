@@ -6,6 +6,7 @@ import Spicial from './Spicial';
 import ShopCart from './ShopCart';
 import Wehave from './Wehave';
 import 'animate.css';
+import Contact from './Contact';
 
 
 export const DarkMode = createContext()
@@ -45,11 +46,11 @@ function Home() {
             <div className={` ${darkMode ? 'page2dark' : 'page2'}`}>
                 <Spicial />
             </div>
-            <h2 className={` text-center p-4  h2  tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg'}`}> whate we have ? </h2>
-            <Wehave/>
-            <h2 className={` text-center p-4 mt-5 mt-5  h2  tracking-in-expand  text-break  ${darkMode ? 'bgdark' : 'bgbg'}`}> categories </h2>
-
-
+            <div className={`  ${darkMode ? 'page2dark' : 'page2'}`}>
+                <h2 className={` text-center p-4  mx-5 rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg'}`}> Categories </h2>
+            </div>
+            <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`}> Contact-Us </h2>
+            <Contact />
         </DarkMode.Provider>
 
 
