@@ -43,13 +43,13 @@ function Home() {
                 {/* end swithe */}
                 <Slide1 />
             </div>
-            <div className={` ${darkMode ? 'page2dark' : 'page2'}`}>
+            <div className={`mb-2 ${darkMode ? 'page2dark' : 'page2'}`}>
                 <Spicial />
             </div>
-            <div className={`  ${darkMode ? 'page2dark' : 'page2'}`}>
-                <h2 className={` text-center p-4  mx-5 rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg'}`}> Categories </h2>
+            <div>
+            <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`}> Categories </h2>
             </div>
-            <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`}> Contact-Us </h2>
+            <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='contact'> Contact-Us </h2>
             <Contact />
         </DarkMode.Provider>
 
