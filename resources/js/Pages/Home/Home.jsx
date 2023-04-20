@@ -27,10 +27,10 @@ function Home() {
 
         <DarkMode.Provider value={darkMode}>
 
-            <div className={` ${darkMode ? 'page1dark' : 'page1'}`}>
+            <div className={` ${darkMode ? 'page1dark' : 'page1'}`} id='firstpage'>
 
 
-                <h1 className='p-4 bounce-in-top '> MyLoGO</h1>
+                <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" srcset="" /></h1>
                 <Menu />
                 <ShopCart />
                 {/* swithe */}
@@ -47,10 +47,15 @@ function Home() {
                 <Spicial />
             </div>
             <div>
-            <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`}> Categories </h2>
+                <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`}> Categories </h2>
             </div>
             <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='contact'> Contact-Us </h2>
             <Contact />
+
+            <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='contact'> About-Us </h2>
+            <div id='about'>
+
+            </div>
         </DarkMode.Provider>
 
 
