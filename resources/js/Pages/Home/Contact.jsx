@@ -8,7 +8,7 @@ function Contact() {
 
     return (
         <>
-            <div className={`   ${darkMode ? 'page2dark' : 'page2'}`}>
+            <div className={` my-2  ${darkMode ? 'page2dark' : 'page2'}`}>
                 <div className={` row mx-1 d-flex justify-content-center bgc align-items-center  ${darkMode ? 'bgcdark' : 'bgc'}`}>
                     <div className={` col-lg-4 col-md-12 my-2 h1 mt-5  text-center text-lowercase ${darkMode ? null : 'text-white'}`}>
                         <Slide left >

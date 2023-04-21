@@ -4,9 +4,10 @@ import Menu from './Menu';
 import Slide1 from './Slide1';
 import Spicial from './Spicial';
 import ShopCart from './ShopCart';
-import Wehave from './Wehave';
-import 'animate.css';
 import Contact from './Contact';
+import About from './About';
+import 'animate.css';
+
 
 
 export const DarkMode = createContext()
@@ -53,9 +54,7 @@ function Home() {
             <Contact />
 
             <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='contact'> About-Us </h2>
-            <div id='about'>
-
-            </div>
+            <About/>
         </DarkMode.Provider>
 
 
