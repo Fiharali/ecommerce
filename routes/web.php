@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WomenController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -46,3 +47,14 @@ Route::get('/nav', function () {
 Route::get('/', function () {
     return Inertia::render('Home/Home');
 });
+
+// Route::get('/women-clothes',  [WomenController::class, 'edit'])->name("women");
+
+Route::resource('women', WomenController::class, [
+    'names' => [
+        'index' => 'women',
+        'store' => 'admin.product.store',
+        'update' => 'admin.product.update',
+        'destroy' => 'admin.product.delete'
+    ]
+]);

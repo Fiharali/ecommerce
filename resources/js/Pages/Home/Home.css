@@ -731,3 +731,51 @@ color: #e5e5e5;
   }
 
 
+/* //////////////////////Category////////////////////// */
+.cate-item{
+    background: #e5e5e5;
+    transition: .5s;
+  }
+
+  .cate-item:hover {
+    background: #212121;
+    color: #e5e5e5;
+  }
+
+  .cate-item img {
+    transition: .5s;
+    background-color: #e5e5e5;
+    height: 100px;
+
+  }
+
+  .cate-item:hover img {
+    transform: scale(1.2) rotate(5deg);
+
+  }
+
+  .cate-item:hover .overflow-hidden {
+    background: #e5e5e5;
+  }
+
+
+  .cate-itemdark{
+    background: #212121;
+    transition: .5s;
+    border: #e5e5e5 1px dotted;
+
+  }
+  .cate-itemdark img {
+    transition: .5s;
+    /* background-color: #e5e5e5; */
+    height: 100px;
+  }
+
+  .cate-itemdark:hover img {
+    transform: scale(1.2) rotate(5deg);
+
+
+  }
+  .cate-itemdark:hover .overflow-hidden {
+    background: #e5e5e5;
+  }

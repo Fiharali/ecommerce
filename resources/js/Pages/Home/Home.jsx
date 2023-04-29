@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react'
+import { Link, useForm } from '@inertiajs/react';
 import Menu from './Menu';
 import Slide1 from './Slide1';
 import Spicial from './Spicial';
@@ -8,6 +9,7 @@ import About from './About';
 import Footer from './Footer';
 import 'animate.css';
 import './Home.css'
+import Category from './Category';
 
 
 
@@ -23,6 +25,11 @@ function Home() {
     useEffect(() => {
 
     }, [darkMode])
+
+
+
+
+
     return (
 
 
@@ -45,14 +52,15 @@ function Home() {
             <div className={`mb-2 ${darkMode ? 'page2dark' : 'page2'}`}>
                 <Spicial />
             </div>
-            <div>
+
                 <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`}> Categories </h2>
-            </div>
+                <Category />
+            
             <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='contact'> Contact-Us </h2>
             <Contact />
             <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='contact'> About-Us </h2>
             <About />
-            <Footer/>
+            <Footer />
         </DarkMode.Provider>
 
 
