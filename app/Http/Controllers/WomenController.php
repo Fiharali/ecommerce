@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Women;
 use App\Http\Requests\StoreWomenRequest;
 use App\Http\Requests\UpdateWomenRequest;
-
+use Inertia\Inertia;
 class WomenController extends Controller
 {
     /**
@@ -14,7 +14,7 @@ class WomenController extends Controller
     public function index()
     {
         //
-        return 'women';
+        return Inertia::render('Shop/Women/Women');
     }
 
     /**

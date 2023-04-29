@@ -34,15 +34,15 @@ function Menu() {
                     <hr />
                     <div className={` d-block  p-3   my-4 fs-4 rounded-5 fst-italic border-bottom border-primary   ${darkMode ? 'itemmsDark' : 'itemms'}`}  >
                         <i className="fa-sharp fa-solid fa-house fa-xl"> </i>
-                        <a href='#firstpage' className='ps-4 link'>  Home</a>
+                        <a href='/#firstpage' className='ps-4 link'>  Home</a>
                     </div>
                     <div className={` d-block  p-3   my-4 fs-4 rounded-5 fst-italic border-bottom border-primary   ${darkMode ? 'itemmsDark' : 'itemms'}`}  >
                         <i class="fa-solid fa-phone fa-xl"></i>
-                        <a href='#contact' className='ps-4 link'>  Contact-us</a>
+                        <a href='/#contact' className='ps-4 link'>  Contact-us</a>
                     </div>
                     <div className={` d-block  p-3   my-4 fs-4 rounded-5 fst-italic border-bottom border-primary   ${darkMode ? 'itemmsDark' : 'itemms'}`}>
                         <i class="fa-solid fa-address-card fa-xl"></i>
-                        <a href='#about' className='ps-4 link'>  About-us</a>
+                        <a href='/#about' className='ps-4 link'>  About-us</a>
                     </div>
                     <div className={` d-block  p-3   my-4 fs-4 rounded-5 fst-italic border-bottom border-primary   ${darkMode ? 'itemmsDark' : 'itemms'}`} onClick={Llogin}>
                         <i class="fa-solid fa-user fa-xl"></i>

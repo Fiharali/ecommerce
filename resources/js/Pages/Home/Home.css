@@ -740,6 +740,7 @@ color: #e5e5e5;
   .cate-item:hover {
     background: #212121;
     color: #e5e5e5;
+    cursor: pointer;
   }
 
   .cate-item img {
@@ -763,6 +764,7 @@ color: #e5e5e5;
     background: #212121;
     transition: .5s;
     border: #e5e5e5 1px dotted;
+    cursor: pointer;
 
   }
   .cate-itemdark img {
