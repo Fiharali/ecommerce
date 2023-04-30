@@ -48,13 +48,16 @@ Route::get('/', function () {
     return Inertia::render('Home/Home');
 });
 
-// Route::get('/women-clothes',  [WomenController::class, 'edit'])->name("women");
+// Route::resource('women', WomenController::class, [
+//     'names' => [
+//         'index' => 'women',
+//         'store' => 'admin.product.store',
+//         'update' => 'admin.product.update',
+//         'destroy' => 'admin.product.delete'
+//     ]
+// ]);
 
-Route::resource('women', WomenController::class, [
-    'names' => [
-        'index' => 'women',
-        'store' => 'admin.product.store',
-        'update' => 'admin.product.update',
-        'destroy' => 'admin.product.delete'
-    ]
-]);
+
+ Route::get('/women-clothes',  [WomenController::class, 'index'])->name("women");
+ Route::get('/women-details/{id}',  [WomenController::class, 'show'])->name("women.details");
+

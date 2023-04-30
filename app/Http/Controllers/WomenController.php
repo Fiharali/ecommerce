@@ -36,9 +36,16 @@ class WomenController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Women $women)
+    public function show( $id)
     {
         //
+
+        return Inertia::render('Shop/Women/WomenDetail', [
+            "id"=>$id,
+            "img1"=>"m1.png",
+            "img2"=>"ww1.png",
+            "img3"=>"m3.png"
+        ]);
     }
 
     /**

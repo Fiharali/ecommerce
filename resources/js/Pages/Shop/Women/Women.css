@@ -32,3 +32,99 @@
     -o-transform: scale(1.15);
 }
 
+.img-fluid {
+width: 32%;
+aspect-ratio: 2/2;
+object-fit: contain;
+backdrop-filter: blur(12px);
+
+}
+h1{
+    text-align: center;
+}
+.contt{
+    background-color: #e5e5e5;
+
+}
+
+
+.button1 {
+
+    height: 2.3em;
+
+    background: #212121;
+    color: #e5e5e5;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+   }
+
+   .button1:hover {
+    color: #212121;
+    border: #212121 1px solid;
+   }
+
+   .button1:after {
+    content: "";
+    background: #e5e5e5;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+   }
+
+   .button1:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+   }
+/* //////////////////////// */
+   .button2 {
+
+    height: 2.3em;
+
+    background: #e5e5e5;
+    color: #212121;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: #212121 1px solid;
+   }
+
+   .button2:hover {
+    color: #e5e5e5;
+
+   }
+
+   .button2:after {
+    content: "";
+    background: #212121;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+   }
+
+   .button2:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+   }
