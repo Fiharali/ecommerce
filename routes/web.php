@@ -60,4 +60,10 @@ Route::get('/', function () {
 
  Route::get('/women-clothes',  [WomenController::class, 'index'])->name("women");
  Route::get('/women-details/{id}',  [WomenController::class, 'show'])->name("women.details");
+ Route::delete('/women-delete/{id}',  [WomenController::class, 'destroy'])->name("delete.women");
+ Route::get('/add-all',  [WomenController::class, 'create'])->name("add.all");
+ Route::post('/add-women-clothes',  [WomenController::class, 'store'])->name("add.women.clothes");
+ Route::get('/women-edit/{id}',  [WomenController::class, 'edit'])->name("women.edit");
+ Route::post('/women-update/{id}',  [WomenController::class, 'update'])->name("women.update");
+
 

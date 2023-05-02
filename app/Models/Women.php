@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Women extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', 'discreption', 'oldPrice' ,'price' , 'img1' , 'img2' , 'img3'];
 }

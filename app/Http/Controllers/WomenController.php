@@ -6,15 +6,20 @@ use App\Models\Women;
 use App\Http\Requests\StoreWomenRequest;
 use App\Http\Requests\UpdateWomenRequest;
 use Inertia\Inertia;
+
 class WomenController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         //
-        return Inertia::render('Shop/Women/Women');
+        $women = Women::all();
+        return Inertia::render(
+            'Shop/Women/Women',
+            [
+                "women" => $women
+            ]
+        );
     }
 
     /**
@@ -22,54 +27,111 @@ class WomenController extends Controller
      */
     public function create()
     {
-        //
+        $women = Women::all();
+        return Inertia::render('Shop/AddAll/AddAll', ['women' => $women]);
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreWomenRequest $request)
     {
-        //
+
+        // rename image1 and store
+        $img1 = $request->img1;
+        $imagename1 = time() . '1.' . $img1->getClientOriginalExtension();
+        $img1->move('products', $imagename1);
+
+        // rename image2 and store
+        $img2 = $request->img2;
+        $imagename2 = time() . '2.' . $img2->getClientOriginalExtension();
+        $img2->move('products', $imagename2);
+
+        // rename image3 and store
+        $img3 = $request->img3;
+        $imagename3 = time() . '3.' . $img3->getClientOriginalExtension();
+        $img3->move('products', $imagename3);
+
+
+
+        Women::create([
+            'title' => $request->title,
+            'discreption' => $request->discreption,
+            'oldPrice' => $request->oldPrice,
+            'price' => $request->price,
+            'img1' => $imagename1,
+            'img2' => $imagename2,
+            'img3' => $imagename3,
+        ]);
+
+        return redirect('/women-clothes');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show( $id)
+    public function show($id)
     {
         //
-
+        $womendetails = Women::find($id);
         return Inertia::render('Shop/Women/WomenDetail', [
-            "id"=>$id,
-            "img1"=>"m1.png",
-            "img2"=>"ww1.png",
-            "img3"=>"m3.png"
+            "women" => $womendetails,
+
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Women $women)
+    public function edit($id)
     {
-        //
-        return 'lalal';
+        $women = Women::find($id);
+        return Inertia::render('Shop/Women/WomenEdit', [
+            "women" => $women,
+
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateWomenRequest $request, Women $women)
+
+    public function update(UpdateWomenRequest $request, $id)
     {
-        //
+        $women = Women::find($id);
+        $women->title = $request->title;
+        $women->discreption = $request->discreption;
+        $women->oldPrice = $request->oldPrice;
+        $women->price = $request->price;
+
+
+        if ($request->hasFile('img1')) {
+            $img1 = $request->img1;
+            $imagename1 = time() . '1.' . $img1->getClientOriginalExtension();
+            $img1->move('products', $imagename1);
+            $women->img1 = $imagename1;
+        }
+        if ($request->hasFile('img2')) {
+            $img2 = $request->img2;
+            $imagename2 = time() . '2.' . $img2->getClientOriginalExtension();
+            $img2->move('products', $imagename2);
+            $women->img2 = $imagename2;
+        }
+        if ($request->hasFile('img3')) {
+            $img3 = $request->img3;
+            $imagename3 = time() . '3.' . $img3->getClientOriginalExtension();
+            $img3->move('products', $imagename3);
+            $women->img3 = $imagename3;
+        }
+        $women->update();
+        session()->flash('message', 'has Update succses');
+        return redirect("/add-all");
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Women $women)
+    public function destroy($id)
     {
-        //
+
+        Women::find($id)->delete();
+        return redirect('/women-clothes');
+
     }
 }
