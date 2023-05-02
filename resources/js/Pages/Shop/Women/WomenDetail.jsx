@@ -4,6 +4,7 @@ import Menu from '@/Pages/Home/Menu'
 import ShopCart from '@/Pages/Home/ShopCart'
 import './Women.css'
 import { Link, useForm } from '@inertiajs/react';
+import Swal from 'sweetalert2'
 
 function WomenDetail({ auth, women }) {
 
@@ -26,9 +27,32 @@ function WomenDetail({ auth, women }) {
 
     // console.log(women)
 
-    const { get, delete:destroy } = useForm({
+    const { get, delete: destroy } = useForm({
 
     })
+
+    const DeleteWomen = () => {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                destroy(route('delete.women', women.id))
+            }
+        })
+
+    }
     return (
         <div className="contt pb-5">
             <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" srcset="" /></h1>
@@ -73,10 +97,10 @@ function WomenDetail({ auth, women }) {
                             {
                                 auth.user && auth.user.isAdmin ? (
                                     <>
-                                        <button className=' button1 p-2 px-5 m-2' onClick={()=>{get(route('women.edit',women.id))}}> Update
+                                        <button className=' button1 p-2 px-5 m-2' onClick={() => { get(route('women.edit', women.id)) }}> Update
                                             <i class="fa-solid fa-pen-to-square fa-xl"></i>
                                         </button>
-                                        <button className=' button2 p-2 px-5 m-2' onClick={()=>{destroy(route('delete.women',women.id))}} > delete
+                                        <button className=' button2 p-2 px-5 m-2' onClick={DeleteWomen} > delete
                                             <i class="fa-sharp fa-solid fa-trash fa-xl"></i>
                                         </button>
 

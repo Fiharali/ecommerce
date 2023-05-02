@@ -1,9 +1,10 @@
 import Menu from '@/Pages/Home/Menu'
 import ShopCart from '@/Pages/Home/ShopCart'
-import { Link, useForm } from '@inertiajs/react';
+import { Link, useForm,usePage } from '@inertiajs/react';
 import './Women.css'
 import React, { useContext } from 'react'
 import { DarkMode } from '@/Pages/Home/Home'
+import Swal from 'sweetalert2'
 
 function Women({ auth, women }) {
     const darkMode = useContext(DarkMode)
@@ -11,6 +12,15 @@ function Women({ auth, women }) {
 
     })
     // console.log(women)
+    const { flash } = usePage().props
+    
+    if (flash.message) {
+        Swal.fire(
+            'Good job!',
+            'Its Have Been Update With Success in Women Clothes',
+            'success'
+        )
+    }
     return (
         <>
 

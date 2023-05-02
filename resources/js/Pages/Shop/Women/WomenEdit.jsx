@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useForm, usePage } from '@inertiajs/react';
 import Menu from '@/Pages/Home/Menu';
-
+import Swal from 'sweetalert2'
 
 function WomenEdit({ women }) {
     // console.log(women)
@@ -20,19 +20,32 @@ function WomenEdit({ women }) {
 
 
     });
+
+    const EditWomen = (e) => {
+        e.preventDefault();
+
+
+        Swal.fire(
+            'Good job!',
+            'Its Have Been Update With Success',
+            'success'
+          )
+
+        post(route('women.update', women.id))
+    }
     return (
         <>
             <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" srcset="" /></h1>
             <Menu />
 
             <div className=' col-7 mx-auto d-flex justify-content-evenly  '>
-                <img src={`/products/${women.img1}`} alt="" srcset=""  width={100}/>
-                <img src={`/products/${women.img2}`} alt="" srcset=""  width={100}/>
-                <img src={`/products/${women.img3}`} alt="" srcset=""  width={100}/>
+                <img src={`/products/${women.img1}`} alt="" srcset="" width={100} />
+                <img src={`/products/${women.img2}`} alt="" srcset="" width={100} />
+                <img src={`/products/${women.img3}`} alt="" srcset="" width={100} />
             </div>
             <div className="col-8 mx-auto mt-5">
 
-                <form enctype="multipart/form-data" onSubmit={(e) => { e.preventDefault(); post(route('women.update',women.id)) }} >
+                <form enctype="multipart/form-data" onSubmit={EditWomen} >
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Title</label>
                         <input type="text" name='title' className="form-control " id="title" aria-describedby="emailHelp"
@@ -66,14 +79,14 @@ function WomenEdit({ women }) {
                         }
                     </div>
                     <div className="mb-3">
-                        <input type="file" name="img1"  className="form-control " id="img1"
+                        <input type="file" name="img1" className="form-control " id="img1"
                             onChange={(e) => setData("img1", e.target.files[0])} />
                         {errors.img1 &&
                             <Shake> <p className='text-danger'>{errors.img1}</p></Shake>
                         }
                     </div>
                     <div className="mb-3">
-                        <input type="file" name="img2"  className="form-control " id="img2"
+                        <input type="file" name="img2" className="form-control " id="img2"
                             onChange={(e) => setData("img2", e.target.files[0])} />
                         {errors.img2 &&
                             <Shake> <p className='text-danger'>{errors.img2}</p></Shake>

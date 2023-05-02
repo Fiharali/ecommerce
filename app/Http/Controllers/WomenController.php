@@ -6,6 +6,7 @@ use App\Models\Women;
 use App\Http\Requests\StoreWomenRequest;
 use App\Http\Requests\UpdateWomenRequest;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Session;
 
 class WomenController extends Controller
 {
@@ -62,6 +63,7 @@ class WomenController extends Controller
             'img3' => $imagename3,
         ]);
 
+        Session::flash('message', "my message");;
         return redirect('/women-clothes');
     }
 
@@ -119,7 +121,7 @@ class WomenController extends Controller
             $women->img3 = $imagename3;
         }
         $women->update();
-        session()->flash('message', 'has Update succses');
+
         return redirect("/add-all");
 
     }

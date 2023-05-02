@@ -22,7 +22,14 @@ class StoreWomenRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+
+            'title' => 'required|max:50',
+            'discreption' => 'required|max:255',
+            'oldPrice' => 'required|numeric|max:9999',
+            'price' => 'required|numeric|max:9999',
+            'img1' => 'required',
+            'img2' => 'required',
+            'img3' => 'required',
         ];
     }
 }
