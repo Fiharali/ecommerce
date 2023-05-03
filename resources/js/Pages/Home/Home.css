@@ -781,3 +781,41 @@ color: #e5e5e5;
   .cate-itemdark:hover .overflow-hidden {
     background: #e5e5e5;
   }
+  /* ////////////////shop Cart/////////////////// */
+/* .cart__shop{
+    width: auto;
+    background: rgba( 84, 32, 32, 0 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+} */
+
+
+.offcanvas-end{
+    background: transparent;
+    backdrop-filter: blur(20px);
+    z-index: 222;
+    color: #212121;
+}
+
+.cart__shop:nth-child(odd){
+    width: auto;
+    background: #e5e5e5;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.cart__shop:nth-child(even){
+    width: auto;
+    background: #212121;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: #e5e5e5;
+}

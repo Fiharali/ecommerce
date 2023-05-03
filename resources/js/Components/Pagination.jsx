@@ -13,18 +13,23 @@ export default function Pagination({ links }) {
 
     return (
         links.length > 3 && (
-            <div className="mt-4">
+            <div className="mt-4 p-2">
                 <div className="d-flex justify-content-center ">
                     {links.map((link, key) => (
-                        link.url === null ?
-                            (<div
-                                className="btn btn-primary text-dark text-center"
-                            >{link.label}</div>) :
+                       <div key={key}>
+                        {
+                             link.url === null ?
+                             (<div
+                                 className="btn btn-primary text-dark text-center"
+                             >{link.label}</div>) :
 
-                            (<Link
-                                className={getClassName(link.active)}
-                                href={link.url}
-                            >{link.label}</Link>)
+                             (<Link
+                                 className={getClassName(link.active)}
+                                 href={link.url}
+                             >{link.label}</Link>)
+                        }
+
+                       </div>
                     ))}
                 </div>
             </div>

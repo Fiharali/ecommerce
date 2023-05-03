@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WomenController;
+use App\Http\Controllers\CardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,14 +40,12 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/nav', function () {
-    return Inertia::render('nav');
-});
+// Route::get('/nav', function () {
+//     return Inertia::render('nav');
+// });
 
 
-Route::get('/', function () {
-    return Inertia::render('Home/Home');
-});
+
 
 // Route::resource('women', WomenController::class, [
 //     'names' => [
@@ -56,7 +55,8 @@ Route::get('/', function () {
 //         'destroy' => 'admin.product.delete'
 //     ]
 // ]);
-
+Route::get('/',  [CardController::class, 'home']);
+Route::delete('/delete-cart-item/{id}',  [CardController::class, 'destroy'])->name('delete.cart.item');
 
  Route::get('/women-clothes',  [WomenController::class, 'index'])->name("women");
  Route::get('/women-details/{id}',  [WomenController::class, 'show'])->name("women.details");
@@ -65,5 +65,6 @@ Route::get('/', function () {
  Route::post('/add-women-clothes',  [WomenController::class, 'store'])->name("add.women.clothes");
  Route::get('/women-edit/{id}',  [WomenController::class, 'edit'])->name("women.edit");
  Route::post('/women-update/{id}',  [WomenController::class, 'update'])->name("women.update");
+ Route::get('/add-women-to-cart/{id}',  [CardController::class, 'addWomenToCart'])->name("add.women.to.cart");
 
 

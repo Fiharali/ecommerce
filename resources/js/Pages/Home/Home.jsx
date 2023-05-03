@@ -14,7 +14,7 @@ import Category from './Category';
 
 
 export const DarkMode = createContext()
-function Home() {
+function Home({auth,card,total}) {
 
     const [darkMode, setDarhMode] = useState(false)
 
@@ -36,9 +36,9 @@ function Home() {
 
         <DarkMode.Provider value={darkMode}>
             <div className={` ${darkMode ? 'page1dark' : 'page1'}`} id='firstpage'>
-                <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" srcset="" /></h1>
-                <Menu />
-                <ShopCart />
+                <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" /></h1>
+                <Menu  auth={ auth }/>
+                <ShopCart auth={auth} card={card} total={total} />
                 {/* swithe  dark*/}
                 <div className='px-4  position-absolute top-5 end-40 bounce-in-top ' >
                     <input type="checkbox" id="checkbox" onChange={dark} />
@@ -55,7 +55,7 @@ function Home() {
 
                 <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`}> Categories </h2>
                 <Category />
-            
+
             <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='contact'> Contact-Us </h2>
             <Contact />
             <h2 className={` text-center p-4   rounded-3 h2 text-break tracking-in-expand   ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='contact'> About-Us </h2>

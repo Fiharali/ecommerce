@@ -3,29 +3,45 @@
 namespace App\Http\Controllers;
 
 use App\Models\Women;
+use App\Models\Card;
 use App\Http\Requests\StoreWomenRequest;
 use App\Http\Requests\UpdateWomenRequest;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Session;
+use Auth;
 
 class WomenController extends Controller
 {
 
+
     public function index()
     {
-        //
+
         $women = Women::paginate(7);
+        if (Auth::check()) {
+            $card = Auth::user()->cards;
+            $total = Auth::user()->cards->sum('price');
+            return Inertia::render(
+                'Shop/Women/Women',
+                [
+                    "women" => $women,
+                    "card" => $card,
+                    "total" => $total
+                ]
+            );
+        }
         return Inertia::render(
             'Shop/Women/Women',
             [
-                "women" => $women
+                "women" => $women,
+
             ]
         );
+
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         $women = Women::paginate(5);
@@ -63,9 +79,9 @@ class WomenController extends Controller
             'img3' => $imagename3,
         ]);
 
-        Session::flash('message', "my message");
+        // Session::flash('message', "my message");
 
-        return redirect('/women-clothes');
+        // return redirect('/women-clothes');
     }
 
     /**
@@ -73,12 +89,23 @@ class WomenController extends Controller
      */
     public function show($id)
     {
-        //
         $womendetails = Women::find($id);
+        if (Auth::check()) {
+            $card = Auth::user()->cards;
+            $total = Auth::user()->cards->sum('price');
+            return Inertia::render('Shop/Women/WomenDetail', [
+                "women" => $womendetails,
+                "card" => $card,
+                "total" => $total
+
+            ]);
+        }
         return Inertia::render('Shop/Women/WomenDetail', [
             "women" => $womendetails,
 
+
         ]);
+
     }
 
     /**
@@ -137,4 +164,13 @@ class WomenController extends Controller
         return redirect('/women-clothes');
 
     }
+    public function home()
+    {
+        $card = Auth::user()->cards;
+        return Inertia::render('Home/Home', [
+            "card" => $card
+        ]);
+    }
+
+
 }

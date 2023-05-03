@@ -1,16 +1,17 @@
 
 import { Link, useForm, usePage } from '@inertiajs/react';
 import './AddAll.css'
+import { useEffect } from 'react';
 import Swal from 'sweetalert2'
 import Menu from '@/Pages/Home/Menu';
 import Pagination from '@/Components/Pagination';
 
-function AddAll({ women }) {
+function AddAll({ auth, women }) {
 
 
     const { flash } = usePage().props
 
-    const { get, data, setData, post, errors, progress,  } = useForm({
+    const { get, data, setData, post, errors, progress, } = useForm({
 
         title: '',
         discreption: '',
@@ -19,25 +20,34 @@ function AddAll({ women }) {
         img1: '',
         img2: '',
         img3: '',
-
-
-
-
     })
+
+
 
     const AddWomenClothes = (e) => {
         e.preventDefault()
         post(route('add.women.clothes'))
 
+        if (errors.title && errors.discreption && errors.oldPrice && errors.price && errors.img1 && errors.img2 && errors.img3) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            data.title = ""
+            data.discreption = ""
+            data.oldPrice = ""
+            data.price = ""
+            data.img1 = ""
+            data.img2 = ""
+            data.img3 = ""
+        }
 
 
-        Swal.fire(
-            'Good job!',
-            'Its Have Been Update With Success in Women Clothes',
-            'success'
-        )
 
-
+        // data.title=""
 
 
 
@@ -53,12 +63,12 @@ function AddAll({ women }) {
             <div className="container-fluid ">
                 <div className="row">
                     <div className="col-lg-2 col-md-12 sidebar ">
-                        <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" srcset="" /></h1>
+                        <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" /></h1>
                     </div>
 
                     <div className='col-lg-10  col-md-12'>
                         <div className="row">
-                            <Menu />
+                            <Menu auth={auth} />
                             <h1 className='h1 text-center mt-3 pt-3'> Women Clothes</h1>
                             <div className="col-lg-6 col-md-12">
 
@@ -130,21 +140,22 @@ function AddAll({ women }) {
                                         <tr>
                                             <th scope="col">Id</th>
                                             <th scope="col">Titlle</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                            <th scope="col">Handle</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">image</th>
+                                            <th scope="col">action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {
                                             women.data.map((item) => {
                                                 return (
-                                                    <tr key={item.id}>
+                                                    <tr key={item.id} className='text-center'>
                                                         <th >{item.id}</th>
                                                         <td>{item.title}</td>
                                                         <td>{item.price}</td>
-                                                        <td ><img src={`/products/${item.img1}`} alt=" " srcset="" width={68} /></td>
-                                                        <td onClick={() => { get(route('women.details', item.id)) }}>Show More</td>
+                                                        <td ><img src={`/products/${item.img1}`} alt=" " width={68} /></td>
+                                                        <td onClick={() => { get(route('women.details', item.id)) }} className=' align-items-center'><i className="fa-solid fa-circle-info fa-2xl" style={{ color: '#151515' }} />
+                                                        </td>
                                                     </tr>
                                                 )
                                             })

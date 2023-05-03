@@ -6,7 +6,7 @@ import './Women.css'
 import { Link, useForm } from '@inertiajs/react';
 import Swal from 'sweetalert2'
 
-function WomenDetail({ auth, women }) {
+function WomenDetail({ auth, women ,card,total}) {
 
     const data = [
         {
@@ -55,10 +55,10 @@ function WomenDetail({ auth, women }) {
     }
     return (
         <div className="contt pb-5">
-            <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" srcset="" /></h1>
+            <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt=""  /></h1>
 
-            <Menu />
-            <ShopCart />
+            <Menu  auth={auth}/>
+            <ShopCart auth={auth} card={card} total={total}/>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-5 col-md-12 mb-10">
@@ -110,7 +110,7 @@ function WomenDetail({ auth, women }) {
                                         <button className=' button1 p-2 m-2'> Paiement When Recieving
                                             <i className="fa-solid fa-dollar-sign fa-xl" ></i>
                                         </button>
-                                        <button className='button2 p-2 m-2'>Add To Cart Shop
+                                        <button className='button2 p-2 m-2' onClick={()=>get(route('add.women.to.cart', women.id))}>Add To Cart Shop
                                             <i className="fa-solid fa-cart-shopping fa-xl" ></i>
                                         </button>
                                     </>

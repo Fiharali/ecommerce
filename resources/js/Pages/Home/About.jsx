@@ -48,7 +48,7 @@ function About() {
 
                     </div>
                     <div className="col-lg-5 col-md-12">
-                        <img src="images/pk1.png" alt="" srcset="" />
+                        <img src="images/pk1.png" alt="img"  />
                     </div>
                 </Bounce>
             </div>

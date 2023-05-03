@@ -3,7 +3,7 @@ import { Link, useForm, usePage } from '@inertiajs/react';
 import Menu from '@/Pages/Home/Menu';
 import Swal from 'sweetalert2'
 
-function WomenEdit({ women }) {
+function WomenEdit({ auth,women }) {
     // console.log(women)
 
     const { get, data, setData, post, errors, progress } = useForm({
@@ -25,23 +25,23 @@ function WomenEdit({ women }) {
         e.preventDefault();
 
 
-        Swal.fire(
-            'Good job!',
-            'Its Have Been Update With Success',
-            'success'
-          )
+        // Swal.fire(
+        //     'Good job!',
+        //     'Its Have Been Update With Success',
+        //     'success'
+        //   )
 
         post(route('women.update', women.id))
     }
     return (
         <>
             <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" srcset="" /></h1>
-            <Menu />
+            <Menu auth={auth}/>
 
             <div className=' col-7 mx-auto d-flex justify-content-evenly  '>
-                <img src={`/products/${women.img1}`} alt="" srcset="" width={100} />
-                <img src={`/products/${women.img2}`} alt="" srcset="" width={100} />
-                <img src={`/products/${women.img3}`} alt="" srcset="" width={100} />
+                <img src={`/products/${women.img1}`} alt=""  width={100} />
+                <img src={`/products/${women.img2}`} alt=""  width={100} />
+                <img src={`/products/${women.img3}`} alt=""  width={100} />
             </div>
             <div className="col-8 mx-auto mt-5">
 
