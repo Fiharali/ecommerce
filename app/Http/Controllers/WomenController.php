@@ -14,7 +14,7 @@ class WomenController extends Controller
     public function index()
     {
         //
-        $women = Women::all();
+        $women = Women::paginate(7);
         return Inertia::render(
             'Shop/Women/Women',
             [
@@ -28,7 +28,7 @@ class WomenController extends Controller
      */
     public function create()
     {
-        $women = Women::all();
+        $women = Women::paginate(5);
         return Inertia::render('Shop/AddAll/AddAll', ['women' => $women]);
 
     }
@@ -63,7 +63,8 @@ class WomenController extends Controller
             'img3' => $imagename3,
         ]);
 
-        Session::flash('message', "my message");;
+        Session::flash('message', "my message");
+
         return redirect('/women-clothes');
     }
 

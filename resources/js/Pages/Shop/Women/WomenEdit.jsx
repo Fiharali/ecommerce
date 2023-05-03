@@ -82,21 +82,21 @@ function WomenEdit({ women }) {
                         <input type="file" name="img1" className="form-control " id="img1"
                             onChange={(e) => setData("img1", e.target.files[0])} />
                         {errors.img1 &&
-                            <Shake> <p className='text-danger'>{errors.img1}</p></Shake>
+                             <p className='text-danger'>{errors.img1}</p>
                         }
                     </div>
                     <div className="mb-3">
                         <input type="file" name="img2" className="form-control " id="img2"
                             onChange={(e) => setData("img2", e.target.files[0])} />
                         {errors.img2 &&
-                            <Shake> <p className='text-danger'>{errors.img2}</p></Shake>
+                             <p className='text-danger'>{errors.img2}</p>
                         }
                     </div>
                     <div className="mb-3">
                         <input type="file" name="img3" className="form-control " id="img3"
                             onChange={(e) => setData("img3", e.target.files[0])} />
                         {errors.img3 &&
-                            <Shake> <p className='text-danger'>{errors.img3}</p></Shake>
+                             <p className='text-danger'>{errors.img3}</p>
                         }
                     </div>
                     {progress && (

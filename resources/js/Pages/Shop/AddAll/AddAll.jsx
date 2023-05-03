@@ -3,14 +3,14 @@ import { Link, useForm, usePage } from '@inertiajs/react';
 import './AddAll.css'
 import Swal from 'sweetalert2'
 import Menu from '@/Pages/Home/Menu';
-
+import Pagination from '@/Components/Pagination';
 
 function AddAll({ women }) {
 
-  
 
+    const { flash } = usePage().props
 
-    const { get, data, setData, post, errors, progress, processing } = useForm({
+    const { get, data, setData, post, errors, progress,  } = useForm({
 
         title: '',
         discreption: '',
@@ -28,6 +28,14 @@ function AddAll({ women }) {
     const AddWomenClothes = (e) => {
         e.preventDefault()
         post(route('add.women.clothes'))
+
+
+
+        Swal.fire(
+            'Good job!',
+            'Its Have Been Update With Success in Women Clothes',
+            'success'
+        )
 
 
 
@@ -129,7 +137,7 @@ function AddAll({ women }) {
                                     </thead>
                                     <tbody>
                                         {
-                                            women.map((item) => {
+                                            women.data.map((item) => {
                                                 return (
                                                     <tr key={item.id}>
                                                         <th >{item.id}</th>
@@ -142,8 +150,9 @@ function AddAll({ women }) {
                                             })
                                         }
                                     </tbody>
-                                </table>
 
+                                </table>
+                                <Pagination class="mt-6" links={women.links} />
                             </div>
 
                         </div>

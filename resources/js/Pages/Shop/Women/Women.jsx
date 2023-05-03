@@ -1,26 +1,26 @@
 import Menu from '@/Pages/Home/Menu'
 import ShopCart from '@/Pages/Home/ShopCart'
-import { Link, useForm,usePage } from '@inertiajs/react';
+import { Link, useForm, usePage } from '@inertiajs/react';
 import './Women.css'
-import React, { useContext } from 'react'
-import { DarkMode } from '@/Pages/Home/Home'
+import React, { useEffect, useState } from 'react'
+import Pagination from '@/Components/Pagination';
 import Swal from 'sweetalert2'
 
 function Women({ auth, women }) {
-    const darkMode = useContext(DarkMode)
-    const { get } = useForm({
+
+    const { get, } = useForm({
 
     })
     // console.log(women)
+
+
+
     const { flash } = usePage().props
-    
-    if (flash.message) {
-        Swal.fire(
-            'Good job!',
-            'Its Have Been Update With Success in Women Clothes',
-            'success'
-        )
-    }
+
+
+
+
+
     return (
         <>
 
@@ -29,7 +29,7 @@ function Women({ auth, women }) {
             <Menu />
             <ShopCart />
 
-            <div className={` container p-4 ${darkMode ? 'page2dark' : 'page2'}`}>
+            <div className={` container p-4 `}>
                 <div className="row">
                     <div className="col-lg-2 col-md-12">
                         <h2 className='h2'>Category</h2>
@@ -45,7 +45,7 @@ function Women({ auth, women }) {
                         </div>
                     </div>
                     {
-                        women.map((item) => {
+                        women.data.map((item) => {
                             return (
                                 <>
                                     <div className="col-lg-3 col-md-4 col-sm-6 pb-1  pt-4" onClick={() => { get(route('women.details', item.id)) }} >
@@ -67,7 +67,7 @@ function Women({ auth, women }) {
                     }
 
 
-
+                    <Pagination class="mt-6" links={women.links} />
 
 
 
