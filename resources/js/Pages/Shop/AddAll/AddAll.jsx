@@ -82,7 +82,7 @@ function AddAll({ auth, women }) {
                                 <form enctype="multipart/form-data" onSubmit={AddWomenClothes} className='py-5 animate__animated animate__zoomIn' >
                                     <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Title</label>
-                                        <input type="text" name='title' placeholder='Title' className="form-control " id="title" aria-describedby="emailHelp "
+                                        <input type="text" name='title' placeholder='Title' className="form-control form_add" id="title" aria-describedby="emailHelp "
                                             value={data.title} onChange={(e) => setData("title", e.target.value)} />
                                         {errors.title &&
                                             <Shake> <p className='text-danger'>{errors.title}</p></Shake>
@@ -90,7 +90,7 @@ function AddAll({ auth, women }) {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="discreption" className="form-label">Discreption</label>
-                                        <input type="text" name='discreption' placeholder='Discreption' className="form-control " id="discreption" aria-describedby="emailHelp"
+                                        <input type="text" name='discreption' placeholder='Discreption' className="form-control form_add" id="discreption" aria-describedby="emailHelp"
                                             value={data.discreption} onChange={(e) => setData("discreption", e.target.value)} />
                                         {errors.discreption &&
                                             <Shake> <p className='text-danger'>{errors.discreption}</p></Shake>
@@ -98,7 +98,7 @@ function AddAll({ auth, women }) {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="oldPrice" className="form-label">Old Price</label>
-                                        <input type="text" name='oldPrice' placeholder='Old Price' className="form-control " id="oldPrice" aria-describedby="emailHelp"
+                                        <input type="text" name='oldPrice' placeholder='Old Price' className="form-control form_add" id="oldPrice" aria-describedby="emailHelp"
                                             value={data.oldPrice} onChange={(e) => setData("oldPrice", e.target.value)} />
                                         {errors.oldPrice &&
                                             <Shake> <p className='text-danger'>{errors.oldPrice}</p></Shake>
@@ -106,28 +106,28 @@ function AddAll({ auth, women }) {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="price" className="form-label">Price</label>
-                                        <input type="text" name='price' placeholder='Price' className="form-control " id="price" aria-describedby="emailHelp"
+                                        <input type="text" name='price' placeholder='Price' className="form-control form_add" id="price" aria-describedby="emailHelp"
                                             value={data.price} onChange={(e) => setData("price", e.target.value)} />
                                         {errors.price &&
                                             <Shake>  <p className='text-danger'>{errors.price}</p></Shake>
                                         }
                                     </div>
                                     <div className="mb-3">
-                                        <input type="file" name="img1" className="form-control " id="img1"
+                                        <input type="file" name="img1" className="form-control form_add" id="img1"
                                             onChange={(e) => setData("img1", e.target.files[0])} />
                                         {errors.img1 &&
                                             <Shake>  <p className='text-danger'>{errors.img1}</p></Shake>
                                         }
                                     </div>
                                     <div className="mb-3">
-                                        <input type="file" name="img2" className="form-control " id="img2"
+                                        <input type="file" name="img2" className="form-control form_add" id="img2"
                                             onChange={(e) => setData("img2", e.target.files[0])} />
                                         {errors.img2 &&
                                             <Shake>  <p className='text-danger'>{errors.img2}</p></Shake>
                                         }
                                     </div>
                                     <div className="mb-3">
-                                        <input type="file" name="img3" className="form-control " id="img3"
+                                        <input type="file" name="img3" className="form-control form_add" id="img3"
                                             onChange={(e) => setData("img3", e.target.files[0])} />
                                         {errors.img3 &&
                                             <Shake>  <p className='text-danger'>{errors.img3}</p></Shake>

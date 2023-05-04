@@ -2,8 +2,9 @@ import React from 'react'
 import { Link, useForm, usePage } from '@inertiajs/react';
 import Menu from '@/Pages/Home/Menu';
 import Swal from 'sweetalert2'
-
-function WomenEdit({ auth,women }) {
+import Slide from 'react-reveal/Slide';
+import './Women.css'
+function WomenEdit({ auth, women }) {
     // console.log(women)
 
     const { get, data, setData, post, errors, progress } = useForm({
@@ -34,80 +35,84 @@ function WomenEdit({ auth,women }) {
         post(route('women.update', women.id))
     }
     return (
-        <>
+        <div className='contt'>
             <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" srcset="" /></h1>
-            <Menu auth={auth}/>
+            <Menu auth={auth} />
 
             <div className=' col-7 mx-auto d-flex justify-content-evenly  '>
-                <img src={`/products/${women.img1}`} alt=""  width={100} />
-                <img src={`/products/${women.img2}`} alt=""  width={100} />
-                <img src={`/products/${women.img3}`} alt=""  width={100} />
+                <img src={`/products/${women.img1}`} alt="" width={100} />
+                <img src={`/products/${women.img2}`} alt="" width={100} />
+                <img src={`/products/${women.img3}`} alt="" width={100} />
             </div>
-            <div className="col-8 mx-auto mt-5">
+            <div className="col-6 mx-auto my-5">
 
-                <form enctype="multipart/form-data" onSubmit={EditWomen} >
-                    <div className="mb-3">
-                        <label htmlFor="title" className="form-label">Title</label>
-                        <input type="text" name='title' className="form-control " id="title" aria-describedby="emailHelp"
-                            value={data.title} onChange={(e) => setData("title", e.target.value)} />
-                        {errors.title &&
-                            <p className='text-danger'>{errors.title}</p>
-                        }
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="discreption" className="form-label">Discreption</label>
-                        <input type="text" name='discreption' className="form-control " id="discreption" aria-describedby="emailHelp"
-                            value={data.discreption} onChange={(e) => setData("discreption", e.target.value)} />
-                        {errors.discreption &&
-                            <p className='text-danger'>{errors.discreption}</p>
-                        }
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="oldPrice" className="form-label">Old Price</label>
-                        <input type="text" name='oldPrice' className="form-control " id="oldPrice" aria-describedby="emailHelp"
-                            value={data.oldPrice} onChange={(e) => setData("oldPrice", e.target.value)} />
-                        {errors.oldPrice &&
-                            <p className='text-danger'>{errors.oldPrice}</p>
-                        }
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="price" className="form-label">Price</label>
-                        <input type="text" name='price' className="form-control " id="price" aria-describedby="emailHelp"
-                            value={data.price} onChange={(e) => setData("price", e.target.value)} />
-                        {errors.price &&
-                            <p className='text-danger'>{errors.price}</p>
-                        }
-                    </div>
-                    <div className="mb-3">
-                        <input type="file" name="img1" className="form-control " id="img1"
-                            onChange={(e) => setData("img1", e.target.files[0])} />
-                        {errors.img1 &&
-                             <p className='text-danger'>{errors.img1}</p>
-                        }
-                    </div>
-                    <div className="mb-3">
-                        <input type="file" name="img2" className="form-control " id="img2"
-                            onChange={(e) => setData("img2", e.target.files[0])} />
-                        {errors.img2 &&
-                             <p className='text-danger'>{errors.img2}</p>
-                        }
-                    </div>
-                    <div className="mb-3">
-                        <input type="file" name="img3" className="form-control " id="img3"
-                            onChange={(e) => setData("img3", e.target.files[0])} />
-                        {errors.img3 &&
-                             <p className='text-danger'>{errors.img3}</p>
-                        }
-                    </div>
+                <form enctype="multipart/form-data" onSubmit={EditWomen} className='pb-5' >
+                    <Slide right cascade>
+                        <div className="mb-3">
+                            <label htmlFor="title" className="form-label">Title</label>
+                            <input type="text" name='title' className="form-control form_add" id="title" aria-describedby="emailHelp"
+                                value={data.title} onChange={(e) => setData("title", e.target.value)} />
+                            {errors.title &&
+                                <p className='text-danger'>{errors.title}</p>
+                            }
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="discreption" className="form-label">Discreption</label>
+                            <input type="text" name='discreption' className="form-control form_add" id="discreption" aria-describedby="emailHelp"
+                                value={data.discreption} onChange={(e) => setData("discreption", e.target.value)} />
+                            {errors.discreption &&
+                                <p className='text-danger'>{errors.discreption}</p>
+                            }
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="oldPrice" className="form-label">Old Price</label>
+                            <input type="text" name='oldPrice' className="form-control form_add" id="oldPrice" aria-describedby="emailHelp"
+                                value={data.oldPrice} onChange={(e) => setData("oldPrice", e.target.value)} />
+                            {errors.oldPrice &&
+                                <p className='text-danger'>{errors.oldPrice}</p>
+                            }
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="price" className="form-label">Price</label>
+                            <input type="text" name='price' className="form-control form_add" id="price" aria-describedby="emailHelp"
+                                value={data.price} onChange={(e) => setData("price", e.target.value)} />
+                            {errors.price &&
+                                <p className='text-danger'>{errors.price}</p>
+                            }
+                        </div>
+                        <div className="mb-3">
+                            <input type="file" name="img1" className="form-control form_add" id="img1"
+                                onChange={(e) => setData("img1", e.target.files[0])} />
+                            {errors.img1 &&
+                                <p className='text-danger'>{errors.img1}</p>
+                            }
+                        </div>
+                        <div className="mb-3">
+                            <input type="file" name="img2" className="form-control form_add" id="img2"
+                                onChange={(e) => setData("img2", e.target.files[0])} />
+                            {errors.img2 &&
+                                <p className='text-danger'>{errors.img2}</p>
+                            }
+                        </div>
+                        <div className="mb-3">
+                            <input type="file" name="img3" className="form-control form_add" id="img3"
+                                onChange={(e) => setData("img3", e.target.files[0])} />
+                            {errors.img3 &&
+                                <p className='text-danger'>{errors.img3}</p>
+                            }
+                        </div>
+                    </Slide>
                     {progress && (
                         <div className=' text-center'>
                             <span className='loader text-center'>Loading</span>
                         </div>
                     )}
-                    <input type="submit" className='btn-primary form-control' />
+                    <input type="submit" className='btn41-43 form-control' />
+
                 </form>
             </div>
-        </>
+
+        </div>
     )
 }
 

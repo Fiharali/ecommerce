@@ -3,6 +3,9 @@
     height: 500px;
     margin: 5px;
   }
+  .containerr{
+    background-color: #e5e5e5;
+  }
 
   @media only screen and (max-width: 990px) {
     .vl{
@@ -47,7 +50,60 @@ h1{
 
 }
 
+/* //////////////////////////////// */
 
+   .buttone {
+    background: #e5e5e5;
+    border: 1px #e5e5e5 solid;
+    outline: 1px #212121 solid;
+    padding: 10px 120px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 10px;
+    transform: skew(-21deg);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+  span {
+    transform: skew(21deg);
+  }
+
+  .buttone::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    left: 0;
+    border-radius: 10px;
+    background: rgb(20, 20, 20);
+    opacity: 0;
+    z-index: -1;
+    border: 1px #e5e5e5 solid;
+    outline: 1px #212121 solid;
+    transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+}
+
+  .buttone:hover {
+    color: #e5e5e5;
+  }
+
+  .buttone:hover::before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+  }
+
+/* /////////////////////////////// */
 .button1 {
 
     height: 2.3em;
@@ -128,3 +184,49 @@ h1{
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
    }
+
+
+   /* //////////////////////////// */
+   .form_add:focus {
+    color: rgb(0, 255, 255);
+    background-color: #212121;
+    outline-color: rgb(0, 0, 0);
+    border: 2px rgb(0, 255, 255) solid;
+    box-shadow: -3px -3px 15px rgb(20, 20, 20);
+    border-radius: 10px;
+    transition: 0;
+    transition-property: box-shadow;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-transition: 0;
+    -moz-transition: 0;
+    -ms-transition: 0;
+    -o-transition: 0;
+}
+
+.btn41-43 {
+    padding: 10px 25px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    background: transparent;
+    outline: 2px #212121 solid;
+    border: 2px #e5e5e5 solid;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+    display: inline-block;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+  .btn41-43:hover{
+    background-color: #212121;
+    color: #e5e5e5;
+    outline: 2px #212121 solid;
+    border: 2px #e5e5e5 solid;
+    box-shadow: 5px 5px 10px  #212121;
+  }

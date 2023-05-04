@@ -16,7 +16,7 @@ const darkMode = useContext(DarkMode)
                                 <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit <br />
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit <br /></p>
                                 <br />
-                                <button className='buttonn form-control'>get start</button>
+                                <button className='buttonn form-control'>  <a href="#catt" className='nohover p-5 '>get  start</a> </button>
                             </div>
                         </div>
                         <div className="col-md-6  d-flex justify-content-center p-6 mt-5 offset-md-1 animate__animated  animate__bounceInRight">

@@ -34,10 +34,12 @@
     <style>
         body {
             scroll-behavior: smooth;
+
             /* height: 2000px; */
             /* background-color: #000000; */
             /* background-color: #043865;   #e5e5e5*/
         }
+        
     </style>
 </head>
 

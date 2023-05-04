@@ -23,12 +23,12 @@ function Women({ auth, women, card, total }) {
 
 
     return (
-        <>
+        <div className='containerr'>
 
             <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" /></h1>
             {
                 auth.user && auth.user.isAdmin ? (
-                    <div className='text-center p-3 '><button className='btn btn-primary text-center px-6' onClick={() => { get(route('add.all')) }} >add women clothes</button></div>
+                    <div className='text-center p-3 '><button className=' text-center buttone animate__animated  animate__rubberBand animate__delay-1s' onClick={() => { get(route('add.all')) }} ><span>Add Women Clothes</span></button></div>
                 ) : (
                     null
                 )
@@ -57,7 +57,7 @@ function Women({ auth, women, card, total }) {
                             return (
                                 <div key={item.id} className="col-lg-3 col-md-4 col-sm-6 pb-1  pt-4" onClick={() => { get(route('women.details', item.id)) }} >
 
-                                    <div className="product-item bg-light mb-4 animate__animated animate__zoomIn" >
+                                    <div className="product-item  mb-4 animate__animated animate__zoomIn" >
                                         <div className="product-img position-relative overflow-hidden">
                                             <img className="img-fluid w-100 " src={`products/${item.img1}`} alt="hg" />
                                         </div>
@@ -92,7 +92,7 @@ function Women({ auth, women, card, total }) {
 
 
 
-        </>
+        </div>
     )
 }
 
