@@ -55,15 +55,15 @@ function Home({ auth, card, total }) {
             </div>
             <Flip left cascade>
 
-                <h2 className={` text-center p-4   rounded-3 h2 text-break letrespace  ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='catt'> Categories </h2>
+                <h2 className={` text-center p-4   rounded-3 h2 text-break letrespace  ${darkMode ? 'bgdark' : 'bgbg '}`} id='catt'> Categories </h2>
             </Flip >
             <Category />
             <Flip left cascade>
-                <h2 className={` text-center p-4   rounded-3 h2 text-break letrespace  ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='contact'> Contact-Us </h2>
+                <h2 className={` text-center p-4   rounded-3 h2 text-break letrespace  ${darkMode ? 'bgdark' : 'bgbg '}`} id='contact'> Contact-Us </h2>
             </Flip >
             <Contact />
             <Flip left cascade>
-                <h2 className={` text-center p-4   rounded-3 h2 text-break letrespace  ${darkMode ? 'bgdark' : 'bgbg mx-5'}`} id='contact'> About-Us </h2>
+                <h2 className={` text-center p-4   rounded-3 h2 text-break letrespace  ${darkMode ? 'bgdark' : 'bgbg '}`} id='contact'> About-Us </h2>
             </Flip >
             <About />
             <Footer />

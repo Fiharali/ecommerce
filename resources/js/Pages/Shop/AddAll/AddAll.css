@@ -4,6 +4,14 @@
     position: sticky;
     top: 0;
 }
+@media only screen and (max-width: 990px) {
+    .sidebar{
+        background: #212121;
+        height: 500px;
+        z-index: 1000;
+        position: relative;
+    }
+  }
 .womenClothes{
     background: #e5e5e5;
 }
@@ -39,7 +47,10 @@
     color: aliceblue;
   }
 /* ////////////////////////////// */
+.form_add{
+    background-color: #e5e5e5;
 
+}
 .form_add:focus {
     color: rgb(0, 255, 255);
     background-color: #212121;
@@ -59,3 +70,7 @@
     -o-transition: 0;
 }
 
+table{
+    width: 100%;
+    table-layout: fixed;
+}

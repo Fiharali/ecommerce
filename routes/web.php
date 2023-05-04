@@ -6,6 +6,7 @@ use App\Http\Controllers\CardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Middleware\isAdmin;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +41,9 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-// Route::get('/nav', function () {
-//     return Inertia::render('nav');
-// });
+// Route::get('/registerr', function () {
+//     return Inertia::render('AuthAuth/Register');
+// })->name('registerr');
 
 
 
@@ -55,16 +56,24 @@ require __DIR__.'/auth.php';
 //         'destroy' => 'admin.product.delete'
 //     ]
 // ]);
-Route::get('/',  [CardController::class, 'home']);
-Route::delete('/delete-cart-item/{id}',  [CardController::class, 'destroy'])->name('delete.cart.item');
 
- Route::get('/women-clothes',  [WomenController::class, 'index'])->name("women");
- Route::get('/women-details/{id}',  [WomenController::class, 'show'])->name("women.details");
- Route::delete('/women-delete/{id}',  [WomenController::class, 'destroy'])->name("delete.women");
+
+////////////////MAIN ROUTE////////////
+Route::get('/',  [CardController::class, 'home']);
+////////////////WOMEN ROUTES////////////
+Route::get('/women-clothes',  [WomenController::class, 'index'])->name("women");
+Route::get('/women-details/{id}',  [WomenController::class, 'show'])->name("women.details");
+Route::middleware('auth')->group(function () {
+    Route::get('/add-women-to-cart/{id}',  [CardController::class, 'addWomenToCart'])->name("add.women.to.cart");
+    Route::delete('/delete-cart-item/{id}',  [CardController::class, 'destroy'])->name('delete.cart.item');
+});
+Route::middleware('isAdmin')->group(function () {
+Route::delete('/women-delete/{id}',  [WomenController::class, 'destroy'])->name("delete.women");
  Route::get('/add-all',  [WomenController::class, 'create'])->name("add.all");
  Route::post('/add-women-clothes',  [WomenController::class, 'store'])->name("add.women.clothes");
  Route::get('/women-edit/{id}',  [WomenController::class, 'edit'])->name("women.edit");
  Route::post('/women-update/{id}',  [WomenController::class, 'update'])->name("women.update");
- Route::get('/add-women-to-cart/{id}',  [CardController::class, 'addWomenToCart'])->name("add.women.to.cart");
+});
+////////////////end WOMEN ROUTES////////////
 
 

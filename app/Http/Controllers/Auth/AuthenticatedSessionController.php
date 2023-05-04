@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
 
+
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -19,10 +20,11 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Auth/Login', [
-            'canResetPassword' => Route::has('password.request'),
-            'status' => session('status'),
-        ]);
+        // return Inertia::render('Auth/Login', [
+        //     'canResetPassword' => Route::has('password.request'),
+        //     'status' => session('status'),
+        // ]);
+        return Inertia::render('AuthAuth/Login');
     }
 
     /**
@@ -34,7 +36,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // return redirect()->intended(RouteServiceProvider::HOME);
+        if (Auth::user()->isAdmin == 1) {
+            return redirect('/add-all');
+        }
+        return redirect('/');
     }
 
     /**
@@ -43,11 +49,14 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
+        // Auth::logout();
 
-        $request->session()->invalidate();
+        return redirect()->intended(RouteServiceProvider::HOME);
 
-        $request->session()->regenerateToken();
+        // $request->session()->invalidate();
 
-        return redirect('/');
+        // $request->session()->regenerateToken();
+
+
     }
 }
