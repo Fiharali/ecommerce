@@ -1,4 +1,43 @@
 .sidebar{
-    background: #e5e5e5;
-    height: 1000px;
+    background: #212121;
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }
+.womenClothes{
+    background: #e5e5e5;
+}
+.womenClothes2{
+    background: #ffffff;
+}
+
+.btn41-43 {
+    padding: 10px 25px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    background: transparent;
+    outline: 2px #212121 solid;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+    display: inline-block;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+  .btn41-43:hover{
+    background-color: #212121;
+    color: #e5e5e5;
+    border: 2px #e5e5e5 solid;
+  }
+  .link{
+    color: aliceblue;
+  }
+/* ////////////////////////////// */
+
+
+
+
+

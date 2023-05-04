@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import Swal from 'sweetalert2'
 import Menu from '@/Pages/Home/Menu';
 import Pagination from '@/Components/Pagination';
+import Shake from 'react-reveal/Shake';
+import 'animate.css';
 
 function AddAll({ auth, women }) {
 
@@ -61,69 +63,74 @@ function AddAll({ auth, women }) {
 
 
             <div className="container-fluid ">
-                <div className="row">
-                    <div className="col-lg-2 col-md-12 sidebar ">
+                <div className="row  ">
+                    <div className="col-lg-2 col-md-12 sidebar  animate__animated animate__slideInLeft ">
                         <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" /></h1>
+                        <div className='text-white '>
+                        <a href="#">women</a> <br />
+                        <a href="#">man</a><br />
+                        ....
+                        </div>
                     </div>
 
-                    <div className='col-lg-10  col-md-12'>
-                        <div className="row">
+                    <div className='col-lg-10  col-md-12 pb-5'>
+                        <div className="row womenClothes " id='111'>
                             <Menu auth={auth} />
                             <h1 className='h1 text-center mt-3 pt-3'> Women Clothes</h1>
-                            <div className="col-lg-6 col-md-12">
+                            <div className="col-lg-6 col-md-12  ">
 
-                                <form enctype="multipart/form-data" onSubmit={AddWomenClothes} >
+                                <form enctype="multipart/form-data" onSubmit={AddWomenClothes} className='py-5 animate__animated animate__zoomIn' >
                                     <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Title</label>
-                                        <input type="text" name='title' className="form-control " id="title" aria-describedby="emailHelp"
+                                        <input type="text" name='title' placeholder='Title' className="form-control " id="title" aria-describedby="emailHelp "
                                             value={data.title} onChange={(e) => setData("title", e.target.value)} />
                                         {errors.title &&
-                                            <p className='text-danger'>{errors.title}</p>
+                                            <Shake> <p className='text-danger'>{errors.title}</p></Shake>
                                         }
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="discreption" className="form-label">Discreption</label>
-                                        <input type="text" name='discreption' className="form-control " id="discreption" aria-describedby="emailHelp"
+                                        <input type="text" name='discreption' placeholder='Discreption' className="form-control " id="discreption" aria-describedby="emailHelp"
                                             value={data.discreption} onChange={(e) => setData("discreption", e.target.value)} />
                                         {errors.discreption &&
-                                            <p className='text-danger'>{errors.discreption}</p>
+                                            <Shake> <p className='text-danger'>{errors.discreption}</p></Shake>
                                         }
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="oldPrice" className="form-label">Old Price</label>
-                                        <input type="text" name='oldPrice' className="form-control " id="oldPrice" aria-describedby="emailHelp"
+                                        <input type="text" name='oldPrice' placeholder='Old Price' className="form-control " id="oldPrice" aria-describedby="emailHelp"
                                             value={data.oldPrice} onChange={(e) => setData("oldPrice", e.target.value)} />
                                         {errors.oldPrice &&
-                                            <p className='text-danger'>{errors.oldPrice}</p>
+                                            <Shake> <p className='text-danger'>{errors.oldPrice}</p></Shake>
                                         }
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="price" className="form-label">Price</label>
-                                        <input type="text" name='price' className="form-control " id="price" aria-describedby="emailHelp"
+                                        <input type="text" name='price' placeholder='Price' className="form-control " id="price" aria-describedby="emailHelp"
                                             value={data.price} onChange={(e) => setData("price", e.target.value)} />
                                         {errors.price &&
-                                            <p className='text-danger'>{errors.price}</p>
+                                            <Shake>  <p className='text-danger'>{errors.price}</p></Shake>
                                         }
                                     </div>
                                     <div className="mb-3">
                                         <input type="file" name="img1" className="form-control " id="img1"
                                             onChange={(e) => setData("img1", e.target.files[0])} />
                                         {errors.img1 &&
-                                            <p className='text-danger'>{errors.img1}</p>
+                                            <Shake>  <p className='text-danger'>{errors.img1}</p></Shake>
                                         }
                                     </div>
                                     <div className="mb-3">
                                         <input type="file" name="img2" className="form-control " id="img2"
                                             onChange={(e) => setData("img2", e.target.files[0])} />
                                         {errors.img2 &&
-                                            <p className='text-danger'>{errors.img2}</p>
+                                            <Shake>  <p className='text-danger'>{errors.img2}</p></Shake>
                                         }
                                     </div>
                                     <div className="mb-3">
                                         <input type="file" name="img3" className="form-control " id="img3"
                                             onChange={(e) => setData("img3", e.target.files[0])} />
                                         {errors.img3 &&
-                                            <p className='text-danger'>{errors.img3}</p>
+                                            <Shake>  <p className='text-danger'>{errors.img3}</p></Shake>
                                         }
                                     </div>
                                     {progress && (
@@ -131,13 +138,13 @@ function AddAll({ auth, women }) {
                                             <span className='loader text-center'>Loading</span>
                                         </div>
                                     )}
-                                    <input type="submit" className='btn-primary form-control' />
+                                    <input type="submit" className='btn41-43 mt-3 form-control' />
                                 </form>
                             </div>
-                            <div className="col-lg-6 col-md-12">
-                                <table className="table table-bordered table-hover p-3 mt-4">
+                            <div className="col-lg-6 col-md-12 ">
+                                <table className="table table-bordered table-hover p-3 mt-5 animate__animated animate__zoomIn">
                                     <thead>
-                                        <tr>
+                                        <tr className='text-center'>
                                             <th scope="col">Id</th>
                                             <th scope="col">Titlle</th>
                                             <th scope="col">Price</th>
@@ -167,6 +174,7 @@ function AddAll({ auth, women }) {
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             </div>

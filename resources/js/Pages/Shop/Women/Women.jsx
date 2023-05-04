@@ -5,6 +5,7 @@ import './Women.css'
 import React, { useEffect, useState } from 'react'
 import Pagination from '@/Components/Pagination';
 import Swal from 'sweetalert2'
+import 'animate.css';
 
 function Women({ auth, women, card, total }) {
 
@@ -56,7 +57,7 @@ function Women({ auth, women, card, total }) {
                             return (
                                 <div key={item.id} className="col-lg-3 col-md-4 col-sm-6 pb-1  pt-4" onClick={() => { get(route('women.details', item.id)) }} >
 
-                                    <div className="product-item bg-light mb-4" >
+                                    <div className="product-item bg-light mb-4 animate__animated animate__zoomIn" >
                                         <div className="product-img position-relative overflow-hidden">
                                             <img className="img-fluid w-100 " src={`products/${item.img1}`} alt="hg" />
                                         </div>
