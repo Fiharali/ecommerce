@@ -37,24 +37,24 @@ function Login({ status, canResetPassword }) {
             <div className='container-fluid fliiid  d-flex align-items-center justify-content-center'>
                 <div className="  formm ">
                     <div className='d-flex justify-content-center '>
-                        <img src="/images/avatar2.png" alt="ihg" width={200}/>
+                        <img src="/images/avatar2.png" alt="ihg" width={200} />
                     </div>
-                    <form  className='p-5 ' onSubmit={submit}>
+                    <form className='p-5 ' onSubmit={submit}>
+                        {errors.email &&
+                            <Shake> <p className='text-warning'>{errors.email}</p></Shake>
+                        }
                         <div class="input-group flex-nowrap mb-3" >
                             <span class="input-group-text" id="addon-wrapping">&nbsp;&nbsp; Email&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             <input type="text" name='email' placeholder='email' className="form-control " id="email" aria-describedby="emailHelp "
                                 value={data.email} onChange={(e) => setData("email", e.target.value)} />
-                                {errors.email &&
-                                            <Shake> <p className='text-danger'>{errors.email}</p></Shake>
-                                        }
                         </div>
+                        {errors.password &&
+                            <Shake> <p className='text-warning'>{errors.password}</p></Shake>
+                        }
                         <div class="input-group flex-nowrap mb-3">
                             <span class="input-group-text" id="addon-wrapping"> Password</span>
                             <input type="password" name='password' placeholder='password' className="form-control " id="password" aria-describedby="emailHelp "
                                 value={data.password} onChange={(e) => setData("password", e.target.value)} />
-                                {errors.password &&
-                                            <Shake> <p className='text-danger'>{errors.password}</p></Shake>
-                                        }
                         </div>
                         <input type="submit" value="Login" className='btn btn-primary p-2 px-5 form-control' />
                         did you not have a account <Link href={route('register')}> registre ?</Link>

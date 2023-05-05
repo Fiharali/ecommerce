@@ -54,6 +54,7 @@ require __DIR__.'/auth.php';
 //         'store' => 'admin.product.store',
 //         'update' => 'admin.product.update',
 //         'destroy' => 'admin.product.delete'
+//ridaaaaaaa
 //     ]
 // ]);
 

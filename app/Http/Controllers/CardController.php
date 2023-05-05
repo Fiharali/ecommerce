@@ -78,6 +78,7 @@ class CardController extends Controller
         if (Auth::check()) {
             $card = Auth::user()->cards;
             $total = Auth::user()->cards->sum('price');
+
             return Inertia::render('Home/Home', [
                 "card" => $card,
                 "total" => $total

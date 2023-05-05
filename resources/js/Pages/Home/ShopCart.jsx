@@ -11,11 +11,12 @@ function ShopCart({ auth, card, total }) {
     })
 
 
+
     return (
         <>
             <div>
                 <button className="p-4   position-absolute top-0 end-20 bounce-in-top " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling2" aria-controls="offcanvasScrolling2">
-                    <i className={` fa-solid fa-cart-shopping fa-xl  ${darkMode ? 'text-light' : 'text-dark'}`} /></button>
+                    <i className={` fa-solid fa-cart-shopping fa-xl  ${darkMode ? 'text-light' : 'text-dark'}`} /> <span className="position-absolute top-5 start-95 translate-middle badge rounded-pill bg-danger ">{auth.user ? card.length :null}</span></button>
                 <div className="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabIndex={-1} id="offcanvasScrolling2" aria-labelledby="offcanvasScrollingLabel2">
                     <div className="offcanvas-header">
                         {/* <h5 className="offcanvas-title text-center" id="offcanvasExampleLabel">Total : {total}</h5> */}
