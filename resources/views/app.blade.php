@@ -23,8 +23,11 @@
     <link rel="stylesheet" href="sweetalert2.min.css">
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-    <!-- Scripts -->
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
     @routes
     @viteReactRefresh
     @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
@@ -39,7 +42,6 @@
             /* background-color: #000000; */
             /* background-color: #043865;   #e5e5e5*/
         }
-        
     </style>
 </head>
 

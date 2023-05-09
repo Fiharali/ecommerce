@@ -17,7 +17,7 @@ class WomenController extends Controller
     public function index()
     {
 
-        $women = Women::paginate(7);
+        $women = Women::paginate(8);
         if (Auth::check()) {
             $card = Auth::user()->cards;
             $total = Auth::user()->cards->sum('price');
@@ -44,7 +44,7 @@ class WomenController extends Controller
 
     public function create()
     {
-        $women = Women::paginate(5);
+        $women = Women::all();
         return Inertia::render('Shop/AddAll/AddAll', ['women' => $women]);
 
     }

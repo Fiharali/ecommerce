@@ -8,8 +8,9 @@ import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 import './Auth.css'
 import Shake from 'react-reveal/Shake';
+import Menu from '../Home/Menu';
 
-function Login({ status, canResetPassword }) {
+function Login({ status, canResetPassword, auth }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
@@ -35,29 +36,29 @@ function Login({ status, canResetPassword }) {
 
 
             <div className='container-fluid fliiid  d-flex align-items-center justify-content-center'>
-                <div className="  formm ">
-                    <div className='d-flex justify-content-center '>
-                        <img src="/images/avatar2.png" alt="ihg" width={200} />
-                    </div>
-                    <form className='p-5 ' onSubmit={submit}>
+                <Menu auth={auth} />
+                <div className="  formm  mx-md-5">
+                    <div className='sign_in text-center mt-4 mb-1'>Sign In</div>
+                    <form className='p-4 ' onSubmit={submit}>
                         {errors.email &&
                             <Shake> <p className='text-warning'>{errors.email}</p></Shake>
                         }
-                        <div class="input-group flex-nowrap mb-3" >
-                            <span class="input-group-text" id="addon-wrapping">&nbsp;&nbsp; Email&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                            <input type="text" name='email' placeholder='email' className="form-control " id="email" aria-describedby="emailHelp "
+                        <div className="input-group flex-nowrap mb-2" >
+                            <label className="mt-2 me-1" ><i className="fa-solid fa-envelope fa-2xl" style={{ color: '#000000' }} /></label>
+                            <input type="text" name='email' placeholder='email' className="form-controll "
                                 value={data.email} onChange={(e) => setData("email", e.target.value)} />
                         </div>
                         {errors.password &&
                             <Shake> <p className='text-warning'>{errors.password}</p></Shake>
                         }
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping"> Password</span>
-                            <input type="password" name='password' placeholder='password' className="form-control " id="password" aria-describedby="emailHelp "
+                        <div className="input-group flex-nowrap mb-5 mb-6" >
+                            <label className="mt-2 me-1" ><i className="fa-solid fa-lock fa-2xl" style={{ color: '#000000' }} /></label>
+                            <input type="text" name='password' placeholder='password' className="form-controll "
                                 value={data.password} onChange={(e) => setData("password", e.target.value)} />
                         </div>
-                        <input type="submit" value="Login" className='btn btn-primary p-2 px-5 form-control' />
-                        did you not have a account <Link href={route('register')}> registre ?</Link>
+                        <input type="submit" value="Login" className='btnIn   p-2 px-5 mt-6 mb-3 form-control' />
+                        <br />
+                        <span className='mt-6'> did you not have a account <Link href={route('register')}> registre ?</Link></span>
                     </form>
                 </div>
             </div>

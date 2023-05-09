@@ -30,7 +30,8 @@ function Women({ auth, women, card, total }) {
                 auth.user && auth.user.isAdmin ? (
                     <div className='text-center p-3 '><button className=' text-center buttone animate__animated  animate__rubberBand animate__delay-1s' onClick={() => { get(route('add.all')) }} ><span>Add Women Clothes</span></button></div>
                 ) : (
-                    null
+                    <div className='text-center p-3  h1'><span> Women Clothes</span></div>
+
                 )
             }
             <Menu auth={auth} />
@@ -38,7 +39,7 @@ function Women({ auth, women, card, total }) {
 
             <div className={` container p-4 `}>
                 <div className="row">
-                    <div className="col-lg-2 col-md-12">
+                    {/* <div className="col-lg-2 col-md-12">
                         <h2 className='h2'>Category</h2>
                         women <br />
                         man <br />
@@ -51,28 +52,26 @@ function Women({ auth, women, card, total }) {
 
                             <div className="vl"></div>
                         </div>
-                    </div>
+                    </div> */}
                     {
                         women.data.map((item) => {
                             return (
-                                <div key={item.id} className="col-lg-3 col-md-4 col-sm-6 pb-1  pt-4" onClick={() => { get(route('women.details', item.id)) }} >
-
-                                    <div className="product-item  mb-4 animate__animated animate__zoomIn" >
-                                        <div className="product-img position-relative overflow-hidden">
-                                            <img className="img-fluid w-100 " src={`products/${item.img1}`} alt="hg" />
-                                        </div>
-                                        <div className="text-center py-4">
-                                            <a className="h6 text-decoration-none text-truncate" href="#">{item.title}</a>
-                                            <div className="d-flex align-items-center justify-content-center mt-2">
-                                                <h5>{item.price}$</h5><h6 className="text-muted ml-2"><del>{item.oldPrice}$</del></h6>
+                                <>
+                                    <div key={item.id} className="  d-flex justify-content-center col-xl-3 col-lg-4 col-md-6 col-sm-1 pb-1  pt-4" onClick={() => { get(route('women.details', item.id)) }} >
+                                        <div className="figure m-3" onClick={() => { get(route('women.details', item.id)) }} >
+                                            <img className="img" src={`products/${item.img1}`} alt="hg" />
+                                            <div className="figcaption">
+                                                <a className="title" href="#">{item.title}</a>
+                                                <h5 className='p'>{item.price}$</h5><h6 className="p"><del>{item.oldPrice}$</del></h6>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </>
                             )
                         }
                         )
                     }
+
 
 
                     <Pagination class="mt-6" links={women.links} />

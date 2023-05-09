@@ -1,13 +1,15 @@
 
 import { Link, useForm, usePage } from '@inertiajs/react';
 import './AddAll.css'
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Swal from 'sweetalert2'
 import Menu from '@/Pages/Home/Menu';
 import Pagination from '@/Components/Pagination';
 import Shake from 'react-reveal/Shake';
 import 'animate.css';
-
+import './AddAll.css'
+import DataTable from 'datatables.net-dt'
+import $ from 'jquery';
 function AddAll({ auth, women }) {
 
 
@@ -24,20 +26,33 @@ function AddAll({ auth, women }) {
         img3: '',
     })
 
+    const [open, setOpen] = useState(false)
+    const tableRef = useRef(null);
+
+    useEffect(() => {
+        if (!$.fn.DataTable.isDataTable(tableRef.current)) {
+            $(tableRef.current).DataTable({
+                lengthChange: false,
+                pageLength: 6,
+                searching: false
+            });
+        }
+
+    }, []);
 
 
     const AddWomenClothes = (e) => {
         e.preventDefault()
         post(route('add.women.clothes'))
 
-        if (errors.title && errors.discreption && errors.oldPrice && errors.price && errors.img1 && errors.img2 && errors.img3) {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 1500
-            })
+        // if (errors.title && errors.discreption && errors.oldPrice && errors.price && errors.img1 && errors.img2 && errors.img3) {
+        //     Swal.fire({
+        //         position: 'top-end',
+        //         icon: 'success',
+        //         title: 'Your work has been saved',
+        //         showConfirmButton: false,
+        //         timer: 1500
+        //     })
             data.title = ""
             data.discreption = ""
             data.oldPrice = ""
@@ -45,11 +60,10 @@ function AddAll({ auth, women }) {
             data.img1 = ""
             data.img2 = ""
             data.img3 = ""
-        }
+        //}
 
 
 
-        // data.title=""
 
 
 
@@ -63,120 +77,184 @@ function AddAll({ auth, women }) {
 
 
             <div className="container-fluid ">
-                <div className="row  ">
-                    <div className="col-lg-2 col-md-12 sidebar  animate__animated animate__slideInLeft ">
-                        <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" /></h1>
-                        <div className='text-white '>
-                        <a href="#">women</a> <br />
-                        <a href="#">man</a><br />
-                        ....
-                        </div>
-                    </div>
+                <div className={` sidebar ${open ? 'open' : null}`}>
+                    <button className='position-absolute top-0 start-0' onClick={() => setOpen(!open)}>{open ? <i className=" fa-solid fa-xmark fa-lg" style={{ color: '#ffffff' }}></i> : <i className="fa-solid fa-bars fa-lg " style={{ color: '#ffffff' }}></i>}</button>
+                    <div className='mt-5 pt-lg-5'>
+                        <ul>
+                            <li>
+                                <a href='#idd' className=''> {open ? <span className=''><i className="fa-solid fa-person-dress fa-lg" > </i> Dashboard </span> : <span><i className="fa-solid fa-person-dress fa-lg" > </i>  </span>} </a>
+                            </li>
 
-                    <div className='col-lg-10  col-md-12 pb-5'>
-                        <div className="row womenClothes " id='111'>
-                            <Menu auth={auth} />
-                            <h1 className='h1 text-center mt-3 pt-3'> Women Clothes</h1>
-                            <div className="col-lg-6 col-md-12  ">
 
-                                <form enctype="multipart/form-data" onSubmit={AddWomenClothes} className='py-5 animate__animated animate__zoomIn' >
-                                    <div className="mb-3">
-                                        <label htmlFor="title" className="form-label">Title</label>
-                                        <input type="text" name='title' placeholder='Title' className="form-control form_add" id="title" aria-describedby="emailHelp "
-                                            value={data.title} onChange={(e) => setData("title", e.target.value)} />
-                                        {errors.title &&
-                                            <Shake> <p className='text-danger'>{errors.title}</p></Shake>
-                                        }
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="discreption" className="form-label">Discreption</label>
-                                        <input type="text" name='discreption' placeholder='Discreption' className="form-control form_add" id="discreption" aria-describedby="emailHelp"
-                                            value={data.discreption} onChange={(e) => setData("discreption", e.target.value)} />
-                                        {errors.discreption &&
-                                            <Shake> <p className='text-danger'>{errors.discreption}</p></Shake>
-                                        }
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="oldPrice" className="form-label">Old Price</label>
-                                        <input type="text" name='oldPrice' placeholder='Old Price' className="form-control form_add" id="oldPrice" aria-describedby="emailHelp"
-                                            value={data.oldPrice} onChange={(e) => setData("oldPrice", e.target.value)} />
-                                        {errors.oldPrice &&
-                                            <Shake> <p className='text-danger'>{errors.oldPrice}</p></Shake>
-                                        }
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="price" className="form-label">Price</label>
-                                        <input type="text" name='price' placeholder='Price' className="form-control form_add" id="price" aria-describedby="emailHelp"
-                                            value={data.price} onChange={(e) => setData("price", e.target.value)} />
-                                        {errors.price &&
-                                            <Shake>  <p className='text-danger'>{errors.price}</p></Shake>
-                                        }
-                                    </div>
-                                    <div className="mb-3">
-                                        <input type="file" name="img1" className="form-control form_add" id="img1"
-                                            onChange={(e) => setData("img1", e.target.files[0])} />
-                                        {errors.img1 &&
-                                            <Shake>  <p className='text-danger'>{errors.img1}</p></Shake>
-                                        }
-                                    </div>
-                                    <div className="mb-3">
-                                        <input type="file" name="img2" className="form-control form_add" id="img2"
-                                            onChange={(e) => setData("img2", e.target.files[0])} />
-                                        {errors.img2 &&
-                                            <Shake>  <p className='text-danger'>{errors.img2}</p></Shake>
-                                        }
-                                    </div>
-                                    <div className="mb-3">
-                                        <input type="file" name="img3" className="form-control form_add" id="img3"
-                                            onChange={(e) => setData("img3", e.target.files[0])} />
-                                        {errors.img3 &&
-                                            <Shake>  <p className='text-danger'>{errors.img3}</p></Shake>
-                                        }
-                                    </div>
-                                    {progress && (
-                                        <div className=' text-center'>
-                                            <span className='loader text-center'>Loading</span>
-                                        </div>
-                                    )}
-                                    <input type="submit" className='btn41-43 mt-3 form-control' />
-                                </form>
-                            </div>
-                            <div className="col-lg-6 col-md-12 ">
-                                <table className="table table-bordered table-hover p-3 mt-5 animate__animated animate__zoomIn">
-                                    <thead>
-                                        <tr className='text-center'>
-                                            <th scope="col">Id</th>
-                                            <th scope="col">Titlle</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">image</th>
-                                            <th scope="col">action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            women.data.map((item) => {
-                                                return (
-                                                    <tr key={item.id} className='text-center'>
-                                                        <th >{item.id}</th>
-                                                        <td>{item.title}</td>
-                                                        <td>{item.price}</td>
-                                                        <td ><img src={`/products/${item.img1}`} alt=" " width={68} /></td>
-                                                        <td onClick={() => { get(route('women.details', item.id)) }} className=' align-items-center'><i className="fa-solid fa-circle-info fa-2xl" style={{ color: '#151515' }} />
-                                                        </td>
-                                                    </tr>
-                                                )
-                                            })
-                                        }
-                                    </tbody>
-
-                                </table>
-                                <Pagination class="mt-6" links={women.links} />
-                            </div>
-
-                        </div>
-
+                        </ul>
                     </div>
                 </div>
+                <div className=" row mx-auto ">
+                    <div>
+                        <section className="home-section my-2" id='idd'>
+                            <div className='col-lg-12  col-md-12 pb-5 '>
+                                <div className="row  subscribe " id='111'>
+                                    <h1 className='h1 text-center mt-3 pt-3'> Women Clothes</h1>
+                                    <div className="col-lg-5 col-md-12  ">
+                                        <form enctype="multipart/form-data" onSubmit={AddWomenClothes} className='py-5  subscribe animate__animated animate__zoomIn text ' >
+                                            <p className='m-2'>form for Women Clothes</p>
+                                            <div className="mb-1 mt-5">
+                                                <input type="text" name='title' placeholder={errors.title ? 'This Input Is For "Title" Required ' : "title"} className={`subscribe-input   ${errors.title && 'red'}`}
+                                                    value={data.title} onChange={(e) => setData("title", e.target.value)} />
+                                            </div>
+                                            <div className="mb-3 mt-3">
+                                                <input type="text" name='discreption' placeholder={errors.discreption ? 'This Input Is For "Discreption" Required ' : "discreption"} className={`subscribe-input   ${errors.discreption && 'red'}`}
+                                                    value={data.discreption} onChange={(e) => setData("discreption", e.target.value)} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input type="number" name='oldPrice' placeholder={errors.oldPrice ? 'This Input Is For "oldPrice" Required  ' : "oldPrice"} className={`subscribe-input   ${errors.oldPrice && 'red'}`}
+                                                    value={data.oldPrice} onChange={(e) => setData("oldPrice", e.target.value)} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input type="number" name='price' placeholder={errors.price ? 'This Input Is For "Price" Required  ' : "price"} className={`subscribe-input   ${errors.price && 'red'}`}
+                                                    value={data.price} onChange={(e) => setData("price", e.target.value)} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input type="file" name="img1" className="form-control  f" id="img1"
+                                                    onChange={(e) => setData("img1", e.target.files[0])} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input type="file" name="img2" className="form-control  f" id="img2"
+                                                    onChange={(e) => setData("img2", e.target.files[0])} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input type="file" name="img3" className="form-control f " id="img3" placeholder=' hhhh'
+                                                    onChange={(e) => setData("img3", e.target.files[0])} />
+                                                {errors.img2 || errors.img1 || errors.img3 ?
+                                                    (<h6 className='text-danger'>The 3 Images is Required</h6>) : null}
+                                            </div>
+                                            {progress && (
+                                                <div className=' text-center'>
+                                                    <span className='loader text-center'>Loading</span>
+                                                </div>
+                                            )}
+                                            <input type="submit" className='submit-btn' />
+                                        </form>
+                                    </div>
+                                    <div className="col-lg-7 col-md-12 mt-lg-0 mt-5 ">
+                                        <table className="table table-bordered table-hover p-3  animate__animated animate__zoomIn box_shadow " id='myTable' ref={tableRef}>
+                                            <thead>
+                                                <tr className='text-center'>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Titlle</th>
+                                                    <th scope="col">Price</th>
+                                                    <th scope="col">image</th>
+                                                    <th scope="col">action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {
+                                                    women.map((item) => {
+                                                        return (
+                                                            <tr key={item.id} className='text-center'>
+                                                                <th >{item.id}</th>
+                                                                <td>{item.title}</td>
+                                                                <td>{item.price}</td>
+                                                                <td ><img src={`/products/${item.img1}`} alt=" " width={65} /></td>
+                                                                <td onClick={() => { get(route('women.details', item.id)) }} className=' align-items-center'><i className="fa-solid fa-circle-info fa-2xl" style={{ color: '#151515' }} />
+                                                                </td>
+                                                            </tr>
+                                                        )
+                                                    })
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                {/* <div className=" row mx-auto ">
+                    <div>
+                        <section className="home-section my-2" id='idd'>
+                            <div className='col-lg-12  col-md-12 pb-5 '>
+                                <div className="row  subscribe " id='111'>
+                                    <h1 className='h1 text-center mt-3 pt-3'> Women Clothes</h1>
+                                    <div className="col-lg-5 col-md-12  ">
+                                        <form enctype="multipart/form-data" onSubmit={AddWomenClothes} className='py-5  subscribe animate__animated animate__zoomIn ' >
+                                            <p className='m-2'>form for Women Clothes</p>
+                                            <div className="mb-1 mt-5">
+                                                <input type="text" name='title' placeholder={errors.title ? 'This Input Is For "Title" Required ' : "title"} className={`subscribe-input   ${errors.title && 'red'}`}
+                                                    value={data.title} onChange={(e) => setData("title", e.target.value)} />
+                                            </div>
+                                            <div className="mb-3 mt-3">
+                                                <input type="text" name='discreption' placeholder={errors.discreption ? 'This Input Is For "Discreption" Required ' : "discreption"} className={`subscribe-input   ${errors.discreption && 'red'}`}
+                                                    value={data.discreption} onChange={(e) => setData("discreption", e.target.value)} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input type="number" name='oldPrice' placeholder={errors.oldPrice ? 'This Input Is For "oldPrice" Required  ' : "oldPrice"} className={`subscribe-input   ${errors.oldPrice && 'red'}`}
+                                                    value={data.oldPrice} onChange={(e) => setData("oldPrice", e.target.value)} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input type="number" name='price' placeholder={errors.price ? 'This Input Is For "Price" Required  ' : "price"} className={`subscribe-input   ${errors.price && 'red'}`}
+                                                    value={data.price} onChange={(e) => setData("price", e.target.value)} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input type="file" name="img1" className="form-control  f" id="img1"
+                                                    onChange={(e) => setData("img1", e.target.files[0])} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input type="file" name="img2" className="form-control  f" id="img2"
+                                                    onChange={(e) => setData("img2", e.target.files[0])} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input type="file" name="img3" className="form-control f " id="img3" placeholder=' hhhh'
+                                                    onChange={(e) => setData("img3", e.target.files[0])} />
+                                                {errors.img2 || errors.img1 || errors.img3 ?
+                                                    (<h6 className='text-danger'>The 3 Images is Required</h6>) : null}
+                                            </div>
+                                            {progress && (
+                                                <div className=' text-center'>
+                                                    <span className='loader text-center'>Loading</span>
+                                                </div>
+                                            )}
+                                            <input type="submit" className='submit-btn' />
+                                        </form>
+                                    </div>
+                                    <div className="col-lg-7 col-md-12 mt-lg-0 mt-5">
+                                        <table className="table table-bordered table-hover p-3  animate__animated animate__zoomIn  box_shadow " id='myTable' ref={tableRef}>
+                                            <thead>
+                                                <tr className='text-center'>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Titlle</th>
+                                                    <th scope="col">Price</th>
+                                                    <th scope="col">image</th>
+                                                    <th scope="col">action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {
+                                                    women.map((item) => {
+                                                        return (
+                                                            <tr key={item.id} className='text-center'>
+                                                                <th >{item.id}</th>
+                                                                <td>{item.title}</td>
+                                                                <td>{item.price}</td>
+                                                                <td ><img src={`/products/${item.img1}`} alt=" " width={65} /></td>
+                                                                <td onClick={() => { get(route('women.details', item.id)) }} className=' align-items-center'><i className="fa-solid fa-circle-info fa-2xl" style={{ color: '#151515' }} />
+                                                                </td>
+                                                            </tr>
+                                                        )
+                                                    })
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+                </div> */}
             </div>
 
 
