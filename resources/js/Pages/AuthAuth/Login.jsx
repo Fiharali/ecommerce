@@ -8,7 +8,7 @@ import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 import './Auth.css'
 import Shake from 'react-reveal/Shake';
-import Menu from '../Home/Menu';
+import Menu from '../Home/Menu/Menu';
 
 function Login({ status, canResetPassword, auth }) {
     const { data, setData, post, processing, errors, reset } = useForm({

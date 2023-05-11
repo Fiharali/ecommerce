@@ -1,0 +1,16 @@
+:root {
+
+    --primary-color: #f3f3f0;
+    --bg-color: #382a1f;
+    --2-color: #af9e79;
+
+}
+
+
+.slideDark{
+    background-color: var(--bg-color);
+}
+
+.slide{
+    background-color: var(--primary-color);
+}

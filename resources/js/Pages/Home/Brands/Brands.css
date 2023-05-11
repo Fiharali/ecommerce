@@ -1,0 +1,37 @@
+/* ////////////  spicial ///////////////// */
+
+
+.pageDark .cardd {
+    width: 190px;
+    /* height: 100px; */
+    border-radius: 20px;
+    background: var(--bg-color);
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    overflow: visible;
+    color: #d8d8d8;
+
+}
+
+.cardd {
+    width: 190px;
+    border-radius: 20px;
+    background: var(--primary-color);
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    overflow: visible;
+}
+
+.cardd:hover {
+    border-color: var(--2-color);
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* //////////// end spicial///////////////// */
+img{
+    object-fit: fill;
+}

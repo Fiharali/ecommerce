@@ -3,7 +3,7 @@ import { Link, useForm, usePage } from '@inertiajs/react';
 import './AddAll.css'
 import { useEffect, useState, useRef } from 'react';
 import Swal from 'sweetalert2'
-import Menu from '@/Pages/Home/Menu';
+import Menu from '@/Pages/Home/Menu/Menu';
 import Pagination from '@/Components/Pagination';
 import Shake from 'react-reveal/Shake';
 import 'animate.css';
@@ -94,7 +94,7 @@ function AddAll({ auth, women }) {
                         <section className="home-section my-2" id='idd'>
                             <div className='col-lg-12  col-md-12 pb-5 '>
                                 <div className="row  subscribe " id='111'>
-                                    <h1 className='h1 text-center mt-3 pt-3'> Women Clothes</h1>
+                                    <h1 className='h1 text-center  pt-3'> Women Clothes</h1>
                                     <div className="col-lg-5 col-md-12  ">
                                         <form enctype="multipart/form-data" onSubmit={AddWomenClothes} className='py-5  subscribe animate__animated animate__zoomIn text ' >
                                             <p className='m-2'>form for Women Clothes</p>

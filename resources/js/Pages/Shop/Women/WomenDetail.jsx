@@ -1,7 +1,7 @@
 import React from 'react'
 import { Carousel } from 'react-carousel-minimal';
-import Menu from '@/Pages/Home/Menu'
-import ShopCart from '@/Pages/Home/ShopCart'
+import Menu from '@/Pages/Home/Menu/Menu'
+import ShopCart from '@/Pages/Home/ShopCart/ShopCart'
 import './Women.css'
 import { Link, useForm } from '@inertiajs/react';
 import Swal from 'sweetalert2'

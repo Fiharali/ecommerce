@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useForm, usePage } from '@inertiajs/react';
-import Menu from '@/Pages/Home/Menu';
+import Menu from '@/Pages/Home/Menu/Menu';
 import Swal from 'sweetalert2'
 import Slide from 'react-reveal/Slide';
 import './Women.css'

@@ -1,0 +1,85 @@
+:root {
+
+    --primary-color: #f3f3f0;
+    --bg-color: #382a1f;
+    --2-color: #af9e79;
+    --body-fonts: "Cambria", Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+
+
+
+
+.cate-item{
+    background: var(--primary-color);
+    transition: .5s;
+    border: var(--2-color) 1px solid;
+
+  }
+
+  .cate-item:hover {
+    background: var(--bg-color);
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+
+  .cate-item img {
+    transition: .5s;
+    background-color: var(--primary-color);
+    height: 100px;
+
+  }
+
+  .cate-item:hover img {
+    transform: scale(1.2) rotate(5deg);
+
+  }
+
+  .cate-item:hover .overflow-hidden {
+    background: var(--primary-color);
+  }
+
+
+  .cate-itemdark{
+    background: var(--bg-color);
+    transition: .5s;
+    border: var(--2-color) 1px solid;
+    cursor: pointer;
+
+  }
+  .cate-itemdark img {
+    transition: .5s;
+    background-color: var(--primary-color);
+    height: 100px;
+  }
+
+  .cate-itemdark:hover img {
+    transform: scale(1.2) rotate(5deg);
+
+
+  }
+  .cate-itemdark:hover .overflow-hidden {
+    background: var(--primary-color);
+  }
+.bigTitle{
+    /*background-color: #f30000;
+    */color: var(--2-color);
+    transition: .5s;
+    transform-origin: left;
+    border-bottom: 5px transparent solid;
+    border-top: 5px transparent solid;
+    font-size: 46px;
+    letter-spacing: 7px;
+    font-family:var(--body-fonts);
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+.bigTitle:hover{
+    border-top: 5px var(--2-color) solid;
+    border-bottom: 5px var(--2-color) solid;
+
+}
+

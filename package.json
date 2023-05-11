@@ -29,6 +29,8 @@
         "react-carousel-minimal": "^1.4.1",
         "react-pro-sidebar": "^1.0.0",
         "react-reveal": "^1.2.2",
+        "react-slick": "^0.29.0",
+        "slick-carousel": "^1.8.1",
         "sweetalert": "^2.1.2",
         "sweetalert2": "^11.7.3"
     }

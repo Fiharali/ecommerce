@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { DarkMode } from './Home'
+import { DarkMode } from '../Home'
 import { Link, useForm } from '@inertiajs/react';
 function ShopCart({ auth, card, total }) {
 

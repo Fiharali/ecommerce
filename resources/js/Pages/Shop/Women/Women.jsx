@@ -1,5 +1,5 @@
-import Menu from '@/Pages/Home/Menu'
-import ShopCart from '@/Pages/Home/ShopCart'
+import Menu from '@/Pages/Home/Menu/Menu'
+import ShopCart from '@/Pages/Home/ShopCart/ShopCart'
 import { Link, useForm, usePage } from '@inertiajs/react';
 import './Women.css'
 import React, { useEffect, useState } from 'react'

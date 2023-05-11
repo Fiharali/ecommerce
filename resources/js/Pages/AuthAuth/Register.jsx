@@ -3,7 +3,7 @@ import { Head, Link, useForm } from '@inertiajs/react';
 import './Auth.css'
 import Shake from 'react-reveal/Shake';
 import Swal from 'sweetalert2'
-import Menu from '../Home/Menu';
+import Menu from '../Home/Menu/Menu';
 import 'animate.css';
 
 export default function Register({auth}) {
