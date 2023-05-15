@@ -11,6 +11,7 @@ function Menu({ auth }) {
 
 
     const [menu, setMenu] = useState(false)
+
     const Llogin = (e) => {
         e.preventDefault();
         get(route('login'));
@@ -39,26 +40,26 @@ function Menu({ auth }) {
                     <div className='menuside animate__animated animate__slideInLeft  '>
                         <button onClick={() => setMenu(!menu)} className="p-4  position-absolute top-0 end-0  " >
                             <i class="fa-solid fa-regular fa-xmark fa-xl" ></i></button>
-                        <div className='mt-5 pt-lg-5'>
+                        <div className='mt-5 pt-5'>
                             <ul>
                                 <li>
-                                    <a href='#idd' className=' p-3 mb-2'> <i className="fa-solid fa-person-dress fa-xl p-2" > </i> Dashboard   </a>
+                                    <a href='/#idd' className=' p-3  mt-3 mb-3'> <i className="fa-solid fa-house fa-xl p-2" > </i> Home   </a>
                                 </li>
                                 <li className=' '>
-                                    <a href="#contact" className='p-3 mb-2'> <i className="fa-solid fa-phone fa-xl p-2"></i> Contact</a>
+                                    <a href="/#aboutConatact" className='p-3 mb-3'> <i className="fa-solid fa-phone fa-xl p-2"></i> Contact</a>
                                 </li>
                                 <li>
-                                    <a href="#about" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> About Us</a>
+                                    <a href="/#aboutConatact" className=' p-3 mb-3'>  <i className="fa-solid fa-address-card fa-xl p-2"></i> About Us</a>
                                 </li>
                                 <li className='catts'>
-                                    <a href="#about" className=' p-3 mb-2 '>  <i className="fa-solid fa-phone fa-xl p-2"></i> Categorys</a>
+                                    <a href="#about" className=' p-3 mb-3 '>  <i className="fa-solid fa-angles-right fa-xl p-2"></i> Categories</a>
                                     <div className='categorys_hover p-2'>
                                         <ul>
                                             <li>
-                                                <a href="#about" className=' p-3 me-2 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Women</a>
+                                                <Link href="/women-clothes" className=' p-3 me-2 mb-2'>  <i className="fa-solid fa-person-dress fa-xl p-2"></i> Women</Link>
                                             </li>
                                             <li>
-                                                <a href="#about" className=' p-3 me-2 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Men</a>
+                                                <Link href="/man-clothes" className=' p-3 me-2 mb-2'>  <i className="fa-solid fa-person fa-xl p-2"></i> Men</Link>
                                             </li>
 
                                         </ul>
@@ -66,29 +67,48 @@ function Menu({ auth }) {
                                 </li>
                                 {
                                     auth.user ?
-                                        auth.user.isAdmin && (
+                                        auth.user.isAdmin ? (
 
                                             <>
                                                 <li>
-                                                    <a href="#footer" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Admin Side</a>
+                                                    <Link href="/add-all" className=' p-3 mb-2'>  <i className="fa-solid fa-folder fa-xl p-2"></i> Admin Side</Link>
                                                 </li>
                                                 {/* <li>
                                                     <a href="#footer" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> LogOut</a>
                                                 </li> */}
                                             </>
                                         ) : (
+                                            null
+                                            // <>
+                                            //     <li>
+                                            //         <a href="#footer" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Admin Side</a>
+                                            //     </li>
+                                            //     <li>
+                                            //         <a href="#footer" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Admin Side</a>
+                                            //     </li>
+                                            // </>
+                                        ) : (
                                             <>
-                                                <li>
-                                                    <a href="#footer" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Login</a>
+                                                <li onClick={Llogin}>
+                                                    <Link href="/login" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Login</Link>
                                                 </li>
-                                                <li>
-                                                    <a href="#footer" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Rejester</a>
+                                                <li onClick={Rregistre}>
+                                                    <Link href="/register" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Regester</Link>
                                                 </li>
                                             </>
                                         )
 
                                 }
                             </ul>
+
+                            {auth.user && (
+                                <>
+                                    <div className="logoutdiv  d-flex justify-between border border-top-2 border-end-0 p-3  border-start-0  border-bottom-0">
+                                        <span className='avattar rounded-5 bg-light text-dark py-3 px-4 ' onClick={Profile}> {auth.user.name[0]} </span>
+                                        <span className=' p-3 px-4 ' onClick={logOut}> <i class="fa-solid fa-right-from-bracket fa-xl"></i></span>
+                                    </div>
+                                </>
+                            )}
                         </div>
 
                     </div>

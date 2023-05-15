@@ -1,7 +1,7 @@
 import Menu from '@/Pages/Home/Menu/Menu'
 import ShopCart from '@/Pages/Home/ShopCart/ShopCart'
 import { Link, useForm, usePage } from '@inertiajs/react';
-import './Women.css'
+import './Womenn.css'
 import React, { useEffect, useState } from 'react'
 import Pagination from '@/Components/Pagination';
 import Swal from 'sweetalert2'
@@ -25,34 +25,21 @@ function Women({ auth, women, card, total }) {
     return (
         <div className='containerr'>
 
-            <h1 className='p-2 bounce-in-top '> <img src="/images/logo.png" width={69} alt="" /></h1>
+            <h1 className='p-2 bounce-in-top '> <img src="/imaggess/logo.jpg" width={69} alt="" /></h1>
             {
                 auth.user && auth.user.isAdmin ? (
                     <div className='text-center p-3 '><button className=' text-center buttone animate__animated  animate__rubberBand animate__delay-1s' onClick={() => { get(route('add.all')) }} ><span>Add Women Clothes</span></button></div>
                 ) : (
-                    <div className='text-center p-3  h1'><span> Women Clothes</span></div>
+                    <div className='text-center p-3  womenClothes'><span> Women Clothes</span></div>
 
                 )
             }
             <Menu auth={auth} />
             <ShopCart auth={auth} card={card} total={total} />
 
-            <div className={` container p-4 `}>
+            <div className={` container p-4 mt-5 `}>
                 <div className="row">
-                    {/* <div className="col-lg-2 col-md-12">
-                        <h2 className='h2'>Category</h2>
-                        women <br />
-                        man <br />
-                        .... <br />
 
-                    </div>
-                    <div className="col-lg-1 col-md-12">
-
-                        <div>
-
-                            <div className="vl"></div>
-                        </div>
-                    </div> */}
                     {
                         women.data.map((item) => {
                             return (
@@ -62,7 +49,7 @@ function Women({ auth, women, card, total }) {
                                             <img className="img" src={`products/${item.img1}`} alt="hg" />
                                             <div className="figcaption">
                                                 <a className="title" href="#">{item.title}</a>
-                                                <h5 className='p'>{item.price}$</h5><h6 className="p"><del>{item.oldPrice}$</del></h6>
+                                                <h5 className='p mt-3'>{item.price}$</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -71,15 +58,7 @@ function Women({ auth, women, card, total }) {
                         }
                         )
                     }
-
-
-
-                    <Pagination class="mt-6" links={women.links} />
-
-
-
-
-
+                    {/* <Pagination class="mt-6" links={women.links} /> */}
                 </div>
 
 

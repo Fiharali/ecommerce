@@ -14,3 +14,16 @@
 .slide{
     background-color: var(--primary-color);
 }
+.minititle{
+    font-size: 74px;
+    font-style: italic;
+    font-weight: bolder;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--2-color);
+}
+.minipara{
+    font-size: 30px;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}

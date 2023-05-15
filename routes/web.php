@@ -64,7 +64,7 @@ Route::get('/',  [CardController::class, 'home']);
 Route::get('/women-clothes',  [WomenController::class, 'index'])->name("women");
 Route::get('/women-details/{id}',  [WomenController::class, 'show'])->name("women.details");
 Route::middleware('auth')->group(function () {
-    Route::get('/add-women-to-cart/{id}',  [CardController::class, 'addWomenToCart'])->name("add.women.to.cart");
+    Route::post('/add-women-to-cart/{id}',  [CardController::class, 'addWomenToCart'])->name("add.women.to.cart");
     Route::delete('/delete-cart-item/{id}',  [CardController::class, 'destroy'])->name('delete.cart.item');
 });
 Route::middleware('isAdmin')->group(function () {

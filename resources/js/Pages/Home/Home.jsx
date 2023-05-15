@@ -50,7 +50,9 @@ function Home({ auth, card, total }) {
                 <Slide1 />
                 <Spicial />
                 <Category />
-                <AboutContact />
+                <div id="aboutConatact">
+                    <AboutContact />
+                </div>
 
                 <div id='footer' className='text-center mt-5'>
                     <p className='p-3'>fiharali &copy; copyright</p>

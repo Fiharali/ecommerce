@@ -102,8 +102,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--2-color);
-    height: 60px;
+    /* background-color: var(--bg-color);
+    height: 60px; */
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bolder;
     font-size: xx-large;

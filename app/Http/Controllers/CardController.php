@@ -13,7 +13,7 @@ use Inertia\Inertia;
 class CardController extends Controller
 {
 
-    public function addWomenToCart($id)
+    public function addWomenToCart( StoreCardRequest $request ,$id)
     {
 
         $women = Women::find($id);
@@ -22,9 +22,12 @@ class CardController extends Controller
             'title' => $women->title,
             'price' => $women->price,
             'img1' => $women->img1,
+            'color' => $request->color,
+            'taille' => $request->taille,
             'user_id' => Auth::user()->id
         ]);
         Session::flash('message', "its add to cart");
+
     }
     public function create()
     {

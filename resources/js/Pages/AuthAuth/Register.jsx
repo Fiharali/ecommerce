@@ -58,7 +58,7 @@ export default function Register({auth}) {
                         }
                         <div className="input-group flex-nowrap mb-1" >
                             <label className="mt-2 me-1" ><i className="fa-solid fa-lock fa-2xl" style={{ color: '#000000' }} /></label>
-                            <input type="text" name='password' placeholder='password' className="form-controll "
+                            <input type="password" name='password' placeholder='password' className="form-controll "
                                 value={data.password} onChange={(e) => setData("password", e.target.value)} />
                         </div>
                         {errors.password_confirmation &&
@@ -66,7 +66,7 @@ export default function Register({auth}) {
                         }
                         <div className="input-group flex-nowrap mb-1" >
                             <label className="mt-2 me-1" ><i className="fa-solid fa-lock fa-2xl" style={{ color: '#000000' }} /></label>
-                            <input type="text" name='password_confirmation' placeholder='password_confirmation' className="form-controll "
+                            <input type="password" name='password_confirmation' placeholder='password_confirmation' className="form-controll "
                                 value={data.password_confirmation} onChange={(e) => setData("password_confirmation", e.target.value)} />
                         </div>
 

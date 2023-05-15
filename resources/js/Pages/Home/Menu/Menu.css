@@ -107,7 +107,15 @@ ul li a:hover, ul li a:active {
     -o-transition: .5 step-end;
 }
 
-.catts:hover  .categorys_hover {
+.catts:hover .categorys_hover {
     visibility: visible;
     opacity: 1;
-    }
+}
+
+
+
+.logoutdiv {
+    position: relative;
+    top: 250px;
+    height: 90px;
+}

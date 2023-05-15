@@ -1,0 +1,29 @@
+:root {
+
+    --primary-color: #f3f3f0;
+    --bg-color: #382a1f;
+    --2-color: #af9e79;
+
+}
+
+.offcanvas-end{
+    background: #ffffff00;
+    backdrop-filter: blur(5px);
+}
+
+.cart__shop{
+    border-radius: 2%;
+    -webkit-border-radius: 2%;
+    -moz-border-radius: 2%;
+    -ms-border-radius: 2%;
+    -o-border-radius: 2%;
+}
+.cart__shop:nth-child(odd){
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+}
+.cart__shop:nth-child(even){
+    background-color: var(--2-color);
+    color: var(--bg-color);
+
+}

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { DarkMode } from '../Home'
 import { Link, useForm } from '@inertiajs/react';
+import './ShopCart.css'
 function ShopCart({ auth, card, total }) {
 
     const darkMode = useContext(DarkMode)
@@ -30,7 +31,7 @@ function ShopCart({ auth, card, total }) {
                                 {
                                     card.map((item) => (
                                         <>
-                                            <div className='cart__shop  p-4 m-3 my-4' key={item.id}>
+                                            <div className='cart__shop position-relative p-4 m-3 my-4' key={item.id}>
                                                 <Link className='position-absolute top-0 end-0 p-2 m-2'><i className={`fa-solid fa-xmark fa-xl `} onClick={(e) => { e.preventDefault(); destroy(route('delete.cart.item', item.id)) }} /></Link>
                                                 <div className="row">
                                                     <div className="col-5">
@@ -38,8 +39,9 @@ function ShopCart({ auth, card, total }) {
                                                     </div>
                                                     <div className="col-6 text-center fs-4">
                                                         <h1> {item.title}</h1>
-
                                                         <h3> {item.price}$</h3>
+                                                        <h3> {item.color}, {item.taille}</h3>
+
                                                     </div>
                                                 </div>
 

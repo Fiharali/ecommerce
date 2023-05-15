@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Card extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'price' , 'img1' , 'user_id'];
+    protected $fillable = ['title', 'price' , 'img1' ,'color','taille', 'user_id'];
 
 
 

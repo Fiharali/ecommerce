@@ -44,7 +44,7 @@ function Login({ status, canResetPassword, auth }) {
                             <Shake> <p className='text-warning'>{errors.email}</p></Shake>
                         }
                         <div className="input-group flex-nowrap mb-2" >
-                            <label className="mt-2 me-1" ><i className="fa-solid fa-envelope fa-2xl" style={{ color: '#000000' }} /></label>
+                            <span className="mt-2 me-1" ><i className="fa-solid fa-envelope fa-2xl" style={{ color: '#000000' }} /></span>
                             <input type="text" name='email' placeholder='email' className="form-controll "
                                 value={data.email} onChange={(e) => setData("email", e.target.value)} />
                         </div>
@@ -52,8 +52,8 @@ function Login({ status, canResetPassword, auth }) {
                             <Shake> <p className='text-warning'>{errors.password}</p></Shake>
                         }
                         <div className="input-group flex-nowrap mb-5 mb-6" >
-                            <label className="mt-2 me-1" ><i className="fa-solid fa-lock fa-2xl" style={{ color: '#000000' }} /></label>
-                            <input type="text" name='password' placeholder='password' className="form-controll "
+                            <span className="mt-2 me-1" ><i className="fa-solid fa-lock fa-2xl" style={{ color: '#000000' }} /></span>
+                            <input type="password" name='password' placeholder='password' className="form-controll "
                                 value={data.password} onChange={(e) => setData("password", e.target.value)} />
                         </div>
                         <input type="submit" value="Login" className='btnIn   p-2 px-5 mt-6 mb-3 form-control' />
