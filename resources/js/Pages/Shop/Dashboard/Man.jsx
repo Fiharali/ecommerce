@@ -54,12 +54,12 @@ function AddAll({ auth, man }) {
                 <AdminMenu />
                 <div className=" row mx-auto ">
                     <div>
-                        <section className="home-section my-2" id='idd'>
-                            <div className='col-lg-12  col-md-12 pb-5 '>
-                                <div className="row my-5 subscribe py-2 " id='women'>
-                                    <h1 className='h1 text-center  pt-3'> Man Clothes</h1>
+                        <section className="home-section " id='idd'>
+                            <div className='col-lg-12  col-md-12 '>
+                                <div className="row mt-3 subscribe  " id='women'>
+                                    <h1 className='h1 text-center  p-2'> Man Clothes</h1>
                                     <div className="col-lg-5 col-md-12  ">
-                                        <form enctype="multipart/form-data" onSubmit={AddManClothes} className='py-5  subscribe   ' >
+                                        <form enctype="multipart/form-data" onSubmit={AddManClothes} className=' subscribe   ' >
                                             <p className='m-2'>form for Man Clothes</p>
                                             <div className="mb-1 mt-5">
                                                 <input type="text" name='title' placeholder={errors.title ? 'This Input Is For "Title" Required ' : "title"} className={`subscribe-input   ${errors.title && 'red'}`}

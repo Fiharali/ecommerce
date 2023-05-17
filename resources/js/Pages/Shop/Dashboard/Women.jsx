@@ -9,9 +9,6 @@ import AdminMenu from './AdminMenu';
 
 function AddAll({ auth, women }) {
 
-
-    // const { flash } = usePage().props
-
     const { get, data, setData, post, errors, progress, } = useForm({
 
         title: '',
@@ -43,9 +40,6 @@ function AddAll({ auth, women }) {
         data.discreption = ""
         data.oldPrice = ""
         data.price = ""
-        data.img1 = ""
-        data.img2 = ""
-        data.img3 = ""
     }
 
     return (
@@ -54,12 +48,12 @@ function AddAll({ auth, women }) {
                 <AdminMenu />
                 <div className=" row mx-auto ">
                     <div>
-                        <section className="home-section my-2" id='idd'>
-                            <div className='col-lg-12  col-md-12 pb-5 '>
-                                <div className="row my-5 subscribe py-2 " id='women'>
-                                    <h1 className='h1 text-center  pt-3'> Women Clothes</h1>
+                        <section className="home-section " id='idd'>
+                            <div className='col-lg-12  col-md-12  '>
+                                <div className="row  mt-3  subscribe  " id='women'>
+                                    <h1 className='h1 text-center p-2 '> Women Clothes</h1>
                                     <div className="col-lg-5 col-md-12  ">
-                                        <form enctype="multipart/form-data" onSubmit={AddWomenClothes} className='py-5  subscribe   ' >
+                                        <form enctype="multipart/form-data" onSubmit={AddWomenClothes} className=' subscribe   ' >
                                             <p className='m-2'>form for Women Clothes</p>
                                             <div className="mb-1 mt-5">
                                                 <input type="text" name='title' placeholder={errors.title ? 'This Input Is For "Title" Required ' : "title"} className={`subscribe-input   ${errors.title && 'red'}`}

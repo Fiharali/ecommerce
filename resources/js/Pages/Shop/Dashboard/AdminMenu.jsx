@@ -4,7 +4,7 @@ import { Link, useForm, usePage } from '@inertiajs/react';
 
 
 function AdminMenu() {
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
     return (
         <>
             <div className={` sidebar ${open ? 'open' : null}`}>
@@ -12,13 +12,13 @@ function AdminMenu() {
                 <div className='mt-5 pt-5'>
                     <ul>
                         <li>
-                            <Link href='/dashboard' className='my-2'> {open ? <span className=''><i className="fa-solid fa-person-dress fa-lg" > </i> Dashboard </span> : <span><i className="fa-solid fa-person-dress fa-lg" > </i>  </span>} </Link>
+                            <Link href='/dashboard' className='my-2'> {open ? <span className=''><i class="fa-sharp fa-solid fa-chart-line fa-lg"></i> Dashboard </span> : <span><i class="fa-sharp fa-solid fa-chart-line fa-lg"></i>  </span>} </Link>
                         </li>
                         <li>
                             <Link href='/add-women-clothes' className='my-2'> {open ? <span className=''><i className="fa-solid fa-person-dress fa-lg" > </i> Women </span> : <span><i className="fa-solid fa-person-dress fa-lg" > </i>  </span>} </Link>
                         </li>
                         <li>
-                            <Link href='/add-man-clothes' className='my-2'> {open ? <span className=''><i className="fa-solid fa-person fa-lg" > </i> Man </span> : <span><i className="fa-solid fa-person-dress fa-lg" > </i>  </span>} </Link>
+                            <Link href='/add-man-clothes' className='my-2'> {open ? <span className=''><i className="fa-solid fa-person fa-lg" > </i> Man </span> : <span><i className="fa-solid fa-person fa-lg" > </i>  </span>} </Link>
                         </li>
                     </ul>
                 </div>

@@ -74,7 +74,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('isAdmin')->group(function () {
 Route::delete('/women-delete/{id}',  [WomenController::class, 'destroy'])->name("delete.women");
  Route::get('/add-women-clothes',  [WomenController::class, 'create'])->name("add.women.clothes");
- Route::post('/add-women-clothes',  [WomenController::class, 'store'])->name("addd.women.clothes");
+ Route::post('/add-women-clothes',  [WomenController::class, 'store'])->name("add.women.clothes");
  Route::get('/women-edit/{id}',  [WomenController::class, 'edit'])->name("women.edit");
  Route::post('/women-update/{id}',  [WomenController::class, 'update'])->name("women.update");
 });
@@ -90,7 +90,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('isAdmin')->group(function () {
 Route::delete('/man-delete/{id}',  [ManController::class, 'destroy'])->name("delete.man");
  Route::get('/add-man-clothes',  [ManController::class, 'create'])->name("add.man.clothes");
- Route::post('/add-man-clothes',  [ManController::class, 'store'])->name("addd.man.clothes");
+ Route::post('/add-man-clothes',  [ManController::class, 'store'])->name("add.man.clothes");
  Route::get('/man-edit/{id}',  [ManController::class, 'edit'])->name("man.edit");
  Route::post('/man-update/{id}',  [ManController::class, 'update'])->name("man.update");
 });
