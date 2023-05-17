@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Card;
 use App\Models\Women;
+use App\Models\Man;
 use App\Http\Requests\StoreCardRequest;
 use App\Http\Requests\UpdateCardRequest;
 use Illuminate\Support\Facades\Session;
@@ -37,9 +38,19 @@ class CardController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCardRequest $request)
+    public function addManToCart(StoreCardRequest $request ,$id)
     {
-        //
+        $man = Man::find($id);
+
+        Card::create([
+            'title' => $man->titleMan,
+            'price' => $man->priceMan,
+            'img1' => $man->img1Man,
+            'color' => $request->color,
+            'taille' => $request->taille,
+            'user_id' => Auth::user()->id
+        ]);
+        Session::flash('message', "its add to cart");
     }
 
     /**
@@ -89,6 +100,12 @@ class CardController extends Controller
         }
 
         return Inertia::render('Home/Home');
+
+    }
+    public function dashboard()
+    {
+
+        return Inertia::render('Shop/Dashboard/Dashboard');
 
     }
 }

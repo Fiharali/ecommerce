@@ -12,7 +12,7 @@ function Women({ auth, women, card, total }) {
     const { get, } = useForm({
 
     })
-    console.log(card)
+    // console.log(card)
 
 
 
@@ -28,7 +28,7 @@ function Women({ auth, women, card, total }) {
             <h1 className='p-2 bounce-in-top '> <img src="/imaggess/logo.jpg" width={69} alt="" /></h1>
             {
                 auth.user && auth.user.isAdmin ? (
-                    <div className='text-center p-3 '><button className=' text-center buttone animate__animated  animate__rubberBand animate__delay-1s' onClick={() => { get(route('add.all')) }} ><span>Add Women Clothes</span></button></div>
+                    <div className='text-center p-3 '><button className=' text-center buttone animate__animated  animate__rubberBand animate__delay-1s' onClick={() => { get(route('add.women.clothes')) }} ><span>Add Women Clothes</span></button></div>
                 ) : (
                     <div className='text-center p-3  womenClothes'><span> Women Clothes</span></div>
 

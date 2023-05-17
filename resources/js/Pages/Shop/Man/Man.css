@@ -1,0 +1,337 @@
+:root {
+
+    --primary-color: #f3f3f0;
+    --bg-color: #382a1f;
+    --2-color: #af9e79;
+    --body-fonts: "Cambria", Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
+}
+.containerr {
+    background-color: #fdfbfb;
+}
+
+
+
+
+
+
+
+h1 {
+    text-align: center;
+}
+
+.contt {
+    background-color: var(--primary-color);
+
+}
+
+/* //////////////////////////////// */
+
+.buttone {
+    background: #e5e5e5;
+    border: 1px #e5e5e5 solid;
+    outline: 1px #212121 solid;
+    padding: 10px 120px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 10px;
+    transform: skew(-21deg);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+/* span {
+    transform: skew(21deg);
+} */
+
+.buttone::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    left: 0;
+    border-radius: 10px;
+    background: rgb(20, 20, 20);
+    opacity: 0;
+    z-index: -1;
+    border: 1px #e5e5e5 solid;
+    outline: 1px #212121 solid;
+    transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+}
+
+.buttone:hover {
+    color: #e5e5e5;
+}
+
+.buttone:hover::before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+/* /////////////////////////////// */
+.button1 {
+    height: 2.3em;
+    background: #212121;
+    color: #e5e5e5;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.button1:hover {
+    color: #212121;
+    border: #212121 1px solid;
+}
+
+.button1:after {
+    content: "";
+    background: #e5e5e5;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+}
+
+.button1:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+/* //////////////////////// */
+.button2 {
+
+    height: 2.3em;
+
+    background: #e5e5e5;
+    color: #212121;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: #212121 1px solid;
+}
+
+.button2:hover {
+    color: #e5e5e5;
+
+}
+
+.button2:after {
+    content: "";
+    background: #212121;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+}
+
+.button2:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+
+/* //////////////////////////// */
+/* //////////////////Hover///////////////// */
+.figure {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    background-color: #000;
+    overflow: hidden;
+    border: 2px var(--2-color) solid;
+    box-shadow: 0px 0px 20px 0px var(--bg-color);
+}
+
+.figure .figcaption::before {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border: 2px solid #fff;
+    opacity: 0;
+    scale: 1.25;
+    transition: opacity 0.25s,
+        scale 0.25s;
+}
+
+.figure:hover .figcaption::before {
+    opacity: 1;
+    scale: 1;
+}
+
+.figure .img {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    scale: 1;
+    transition: opacity 0.25s,scale 0.35s;
+    -webkit-transition: opacity 0.25s,scale 0.35s;
+    -moz-transition: opacity 0.25s,scale 0.35s;
+    -ms-transition: opacity 0.25s,scale 0.35s;
+    -o-transition: opacity 0.25s,scale 0.35s;
+}
+
+.figure:hover .img {
+    opacity: 0.7;
+    scale: 1.15;
+}
+
+.figure .figcaption {
+    position: absolute;
+    inset: 0;
+    padding: 50px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+    justify-content: center;
+}
+
+.figure .title {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0;
+}
+.figure:hover .title {
+    opacity: 1;
+}
+
+.figure .p {
+    font-size: 14px;
+    opacity: 0;
+    translate: -25px;
+    transition: opacity 0.25s translate 0.25s;
+}
+
+.figure:hover .p {
+    opacity: 1;
+    translate: 0;
+}
+
+.womenClothes{
+    font-size: 60px;
+    font-family: var(--body-fonts);
+    color: var(--2-color);
+}
+
+
+
+/* ////////////////////////////////// */
+
+
+   label {
+    display: flex;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.375em;
+  }
+
+    label input {
+    position: absolute;
+    left: -9999px;
+  }
+
+
+  .red:checked + span {
+    background-color: #ff5e00;
+    color: white;
+  }
+
+  .red:checked + span:before {
+    box-shadow: inset 0 0 0 0.4375em #f50303;
+  }
+  .Black:checked + span {
+    background-color: #020202;
+    color: white;
+  }
+
+  .Black:checked + span:before {
+    box-shadow: inset 0 0 0 0.4375em #000000;
+  }
+  .White:checked + span {
+    background-color: #ffffff;
+    color: rgb(14, 13, 13);
+  }
+
+  .White:checked + span:before {
+    box-shadow: inset 0 0 0 0.4375em #e7e6e6;
+  }
+  .Yellow:checked + span {
+    background-color: yellow;
+    color: rgb(0, 0, 0);
+  }
+
+  .Yellow:checked + span:before {
+    box-shadow: inset 0 0 0 0.4375em yellow;
+  }
+
+   label span {
+    display: flex;
+    align-items: center;
+    padding: 0.375em 0.75em 0.375em 0.375em;
+    border-radius: 99em;
+    transition: 0.25s ease;
+    color: var(--bg-color);
+  }
+
+   label span:hover {
+    background-color: #d6d6e5;
+  }
+
+   label span:before {
+    display: flex;
+    flex-shrink: 0;
+    content: "";
+    background-color: #fff;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: 0.375em;
+    transition: 0.25s ease;
+    box-shadow: inset 0 0 0 0.125em #00005c;
+  }
+/* //////////////////////////////:::: */
+
+
+
+
+
+
+
+

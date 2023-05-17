@@ -111,7 +111,7 @@ function Category() {
                                     </div>
                                 </div>
                             </div>
-                            <div className=" px-4   pb-3 ">
+                            <div className=" px-4   pb-3  " onClick={() => { get(route('man')) }} >
                                 <div className={`d-flex align-items-center overflow-hidden    ${darkMode ? 'cate-itemdark' : 'cate-item'}`}>
                                     <div className="overflow-hidden" style={{ width: 100, height: 100 }}>
                                         <img className="img-fluid" src="/images/man.png" alt />

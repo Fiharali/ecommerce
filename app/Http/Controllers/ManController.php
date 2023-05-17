@@ -2,63 +2,64 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Women;
 use App\Models\Man;
-use App\Models\Card;
-use App\Http\Requests\StoreWomenRequest;
-use App\Http\Requests\UpdateWomenRequest;
-use Inertia\Inertia;
-use Illuminate\Support\Facades\Session;
+use App\Models\Women;
+use App\Http\Requests\StoreManRequest;
+use App\Http\Requests\UpdateManRequest;
 use Auth;
-
-class WomenController extends Controller
+use Inertia\Inertia;
+class ManController extends Controller
 {
-
-
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-
-        $women = Women::paginate(8);
+        $man = Man::paginate(8);
         if (Auth::check()) {
             $card = Auth::user()->cards;
             $total = Auth::user()->cards->sum('price');
             return Inertia::render(
-                'Shop/Women/Women',
+                'Shop/Man/Man',
                 [
-                    "women" => $women,
+                    "man" => $man,
                     "card" => $card,
                     "total" => $total
                 ]
             );
         }
         return Inertia::render(
-            'Shop/Women/Women',
+            'Shop/Man/Man',
             [
-                "women" => $women,
+                "man" => $man,
 
             ]
         );
-
-
     }
 
-
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        $women = Women::all();
-        return Inertia::render('Shop/Dashboard/Women', [
-            'women' => $women ,
+        
+        $man = Man::all();
+        return Inertia::render('Shop/Dashboard/Man', [
+            'man' => $man
         ]);
-
     }
 
-    public function store(StoreWomenRequest $request)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreManRequest $request)
     {
 
         // rename image1 and store
         $img1 = $request->img1;
         $imagename1 = time() . '1.' . $img1->getClientOriginalExtension();
         $img1->move('products', $imagename1);
+
 
         // rename image2 and store
         $img2 = $request->img2;
@@ -72,7 +73,7 @@ class WomenController extends Controller
 
 
 
-        Women::create([
+        Man::create([
             'title' => $request->title,
             'discreption' => $request->discreption,
             'oldPrice' => $request->oldPrice,
@@ -82,98 +83,90 @@ class WomenController extends Controller
             'img3' => $imagename3,
         ]);
 
+
+
+
         // Session::flash('message', "my message");
 
-        // return redirect('/women-clothes');
+        // return redirect('/add-all/#man');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show( $id)
     {
-        $womendetails = Women::find($id);
+        $mandetails = Man::find($id);
         if (Auth::check()) {
             $card = Auth::user()->cards;
             $total = Auth::user()->cards->sum('price');
-            return Inertia::render('Shop/Women/WomenDetail', [
-                "women" => $womendetails,
+            return Inertia::render('Shop/Man/ManDetail', [
+                "man" => $mandetails,
                 "card" => $card,
                 "total" => $total
 
             ]);
         }
-        return Inertia::render('Shop/Women/WomenDetail', [
-            "women" => $womendetails,
+        return Inertia::render('Shop/Man/ManDetail', [
+            "man" => $mandetails,
 
 
         ]);
-
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit( $id)
     {
-        $women = Women::find($id);
-        return Inertia::render('Shop/Women/WomenEdit', [
-            "women" => $women,
+        $man = Man::find($id);
+        return Inertia::render('Shop/Man/ManEdit', [
+            "man" => $man,
 
         ]);
     }
 
-
-    public function update(UpdateWomenRequest $request, $id)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateManRequest $request, $id)
     {
-        $women = Women::find($id);
-        $women->title = $request->title;
-        $women->discreption = $request->discreption;
-        $women->oldPrice = $request->oldPrice;
-        $women->price = $request->price;
+        $man = Man::find($id);
+        $man->title = $request->title;
+        $man->discreption = $request->discreption;
+        $man->oldPrice = $request->oldPrice;
+        $man->price = $request->price;
 
 
         if ($request->hasFile('img1')) {
             $img1 = $request->img1;
             $imagename1 = time() . '1.' . $img1->getClientOriginalExtension();
             $img1->move('products', $imagename1);
-            $women->img1 = $imagename1;
+            $man->img1 = $imagename1;
         }
         if ($request->hasFile('img2')) {
             $img2 = $request->img2;
             $imagename2 = time() . '2.' . $img2->getClientOriginalExtension();
             $img2->move('products', $imagename2);
-            $women->img2 = $imagename2;
+            $man->img2 = $imagename2;
         }
         if ($request->hasFile('img3')) {
             $img3 = $request->img3;
             $imagename3 = time() . '3.' . $img3->getClientOriginalExtension();
             $img3->move('products', $imagename3);
-            $women->img3 = $imagename3;
+            $man->img3 = $imagename3;
         }
-        $women->update();
+        $man->update();
 
-        return redirect("/add-women-clothes");
-
+        return redirect("/add-all");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-
-        Women::find($id)->delete();
-        return redirect('/women-clothes');
-
+        Man::find($id)->delete();
+        return redirect('/man-clothes');
     }
-    public function home()
-    {
-        $card = Auth::user()->cards;
-        return Inertia::render('Home/Home', [
-            "card" => $card
-        ]);
-    }
-
-
 }
