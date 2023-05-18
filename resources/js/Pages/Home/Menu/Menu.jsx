@@ -73,20 +73,11 @@ function Menu({ auth }) {
                                                 <li>
                                                     <Link href="/dashboard" className=' p-3 mb-2'>  <i className="fa-solid fa-folder fa-xl p-2"></i> Admin Side</Link>
                                                 </li>
-                                                {/* <li>
-                                                    <a href="#footer" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> LogOut</a>
-                                                </li> */}
+
                                             </>
                                         ) : (
                                             null
-                                            // <>
-                                            //     <li>
-                                            //         <a href="#footer" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Admin Side</a>
-                                            //     </li>
-                                            //     <li>
-                                            //         <a href="#footer" className=' p-3 mb-2'>  <i className="fa-solid fa-phone fa-xl p-2"></i> Admin Side</a>
-                                            //     </li>
-                                            // </>
+                                           
                                         ) : (
                                             <>
                                                 <li onClick={Llogin}>

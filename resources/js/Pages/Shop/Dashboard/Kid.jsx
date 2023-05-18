@@ -6,8 +6,13 @@ import './Dashboard.css'
 import $ from 'jquery';
 import DataTable from 'datatables.net-dt'
 import AdminMenu from './AdminMenu';
-// import 'datatables.net-responsive-dt';
-function Women({ auth, women }) {
+
+
+
+function Kid({ auth, kid }) {
+
+
+    // const { flash } = usePage().props
 
     const { get, data, setData, post, errors, progress, } = useForm({
 
@@ -20,23 +25,23 @@ function Women({ auth, women }) {
         img3: '',
     })
 
+
     const tableRef = useRef(null);
     useEffect(() => {
         if (!$.fn.DataTable.isDataTable(tableRef.current)) {
             $(tableRef.current).DataTable({
                 lengthChange: false,
                 pageLength: 6,
-                searching: false,
-                // responsive: true
+                searching: false
             });
 
         }
     }, [tableRef]);
 
 
-    const AddWomenClothes = (e) => {
+    const AddKidClothes = (e) => {
         e.preventDefault()
-        post(route('add.women.clothes'))
+        post(route('add.kid.clothes'))
         data.title = ""
         data.discreption = ""
         data.oldPrice = ""
@@ -50,12 +55,12 @@ function Women({ auth, women }) {
                 <div className=" row mx-auto ">
                     <div>
                         <section className="home-section " id='idd'>
-                            <div className='col-lg-12  col-md-12  '>
-                                <div className="row  mt-3  subscribe  " id='women'>
-                                    <h1 className='h1 text-center p-2 '> Women Clothes</h1>
+                            <div className='col-lg-12  col-md-12 '>
+                                <div className="row mt-3 subscribe  " id='women'>
+                                    <h1 className='h1 text-center  p-2'> Kid Clothes</h1>
                                     <div className="col-lg-5 col-md-12  ">
-                                        <form enctype="multipart/form-data" onSubmit={AddWomenClothes} className=' subscribe   ' >
-                                            <p className='m-2'>form for Women Clothes</p>
+                                        <form enctype="multipart/form-data" onSubmit={AddKidClothes} className=' subscribe   ' >
+                                            <p className='m-2'>form for Kid Clothes</p>
                                             <div className="mb-1 mt-5">
                                                 <input type="text" name='title' placeholder={errors.title ? 'This Input Is For "Title" Required ' : "title"} className={`subscribe-input   ${errors.title && 'red'}`}
                                                     value={data.title} onChange={(e) => setData("title", e.target.value)} />
@@ -95,7 +100,7 @@ function Women({ auth, women }) {
                                         </form>
                                     </div>
                                     <div className="col-lg-7 col-md-12 mt-lg-0 mt-5 ">
-                                        <table className="table table-bordered table-hover p-3   box_shadow tabllle" id='myTable' ref={tableRef}>
+                                        <table className="table table-bordered table-hover p-3 tabllle  box_shadow " id='myTable' ref={tableRef}>
                                             <thead>
                                                 <tr className='text-center'>
                                                     <th scope="col">Id</th>
@@ -107,14 +112,14 @@ function Women({ auth, women }) {
                                             </thead>
                                             <tbody>
                                                 {
-                                                    women.map((item) => {
+                                                    kid.map((item) => {
                                                         return (
                                                             <tr key={item.id} className='text-center'>
                                                                 <th >{item.id}</th>
                                                                 <td>{item.title}</td>
                                                                 <td>{item.price}</td>
                                                                 <td ><img src={`/products/${item.img1}`} alt=" " width={65} /></td>
-                                                                <td onClick={() => { get(route('women.details', item.id)) }} className=' align-items-center'><i className="fa-solid fa-circle-info fa-2xl" style={{ color: '#151515' }} />
+                                                                <td onClick={() => { get(route('kid.details', item.id)) }} className=' align-items-center'><i className="fa-solid fa-circle-info fa-2xl" style={{ color: '#151515' }} />
                                                                 </td>
                                                             </tr>
                                                         )
@@ -133,6 +138,6 @@ function Women({ auth, women }) {
     )
 }
 
-export default Women
+export default Kid
 
 

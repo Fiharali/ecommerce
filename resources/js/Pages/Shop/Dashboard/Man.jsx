@@ -9,7 +9,7 @@ import AdminMenu from './AdminMenu';
 
 
 
-function AddAll({ auth, man }) {
+function Man({ auth, man }) {
 
 
     // const { flash } = usePage().props
@@ -138,6 +138,6 @@ function AddAll({ auth, man }) {
     )
 }
 
-export default AddAll
+export default Man
 
 

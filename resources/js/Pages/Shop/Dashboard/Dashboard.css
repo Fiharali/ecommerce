@@ -218,5 +218,6 @@ ul li a:hover {
 /* ////////////////end admin dash//////////// */
 .tabllle{
     overflow: hidden;
+    z-index: 9999px;
 }
 

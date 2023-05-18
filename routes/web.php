@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WomenController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\ManController;
+use App\Http\Controllers\KidController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,9 @@ use App\Http\Middleware\isAdmin;
 //     ]);
 // });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -87,7 +88,7 @@ Route::get('/man-clothes',  [ManController::class, 'index'])->name("man");
 Route::get('/man-details/{id}',  [ManController::class, 'show'])->name("man.details");
 Route::middleware('auth')->group(function () {
     Route::post('/add-man-to-cart/{id}',  [CardController::class, 'addManToCart'])->name("add.man.to.cart");
-    Route::delete('/delete-cart-item/{id}',  [CardController::class, 'destroy'])->name('delete.cart.item');
+    // Route::delete('/delete-cart-item/{id}',  [CardController::class, 'destroy'])->name('delete.cart.item');
 });
 Route::middleware('isAdmin')->group(function () {
 Route::delete('/man-delete/{id}',  [ManController::class, 'destroy'])->name("delete.man");
@@ -98,4 +99,19 @@ Route::delete('/man-delete/{id}',  [ManController::class, 'destroy'])->name("del
 });
 ////////////////end MEN ROUTES////////////
 
+////////////////kid ROUTES////////////
+Route::get('/kid-clothes',  [KidController::class, 'index'])->name("kid");
+Route::get('/kid-details/{id}',  [KidController::class, 'show'])->name("kid.details");
+Route::middleware('auth')->group(function () {
+    Route::post('/add-kid-to-cart/{id}',  [CardController::class, 'addkidToCart'])->name("add.kid.to.cart");
+    // Route::delete('/delete-cart-item/{id}',  [CardController::class, 'destroy'])->name('delete.cart.item');
+});
+Route::middleware('isAdmin')->group(function () {
+Route::delete('/kid-delete/{id}',  [KidController::class, 'destroy'])->name("delete.kid");
+ Route::get('/add-kid-clothes',  [KidController::class, 'create'])->name("add.kid.clothes");
+ Route::post('/add-kid-clothes',  [KidController::class, 'store'])->name("add.kid.clothes");
+ Route::get('/kid-edit/{id}',  [KidController::class, 'edit'])->name("kid.edit");
+ Route::post('/kid-update/{id}',  [KidController::class, 'update'])->name("kid.update");
+});
+////////////////end kid ROUTES////////////
 
