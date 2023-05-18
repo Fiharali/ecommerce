@@ -100,7 +100,7 @@ function AddAll({ auth, man }) {
                                         </form>
                                     </div>
                                     <div className="col-lg-7 col-md-12 mt-lg-0 mt-5 ">
-                                        <table className="table table-bordered table-hover p-3   box_shadow " id='myTable' ref={tableRef}>
+                                        <table className="table table-bordered table-hover p-3 tabllle  box_shadow " id='myTable' ref={tableRef}>
                                             <thead>
                                                 <tr className='text-center'>
                                                     <th scope="col">Id</th>

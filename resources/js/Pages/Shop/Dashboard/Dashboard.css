@@ -92,6 +92,7 @@ ul li a:hover {
     z-index: 2;
 }
 
+
 /* .sidebar.open~.home-section {
     left: 250px;
     width: calc(100% - 250px);
@@ -199,7 +200,7 @@ ul li a:hover {
 }
 
 /* //////////////Admin dash////////////// */
-.admindash div div {
+.admindash .dashbord1 {
     height: 150px;
     background-color: #af9e7927;
     box-shadow: inset 50px 50px 50px 1px #0000000c;
@@ -215,3 +216,7 @@ ul li a:hover {
 }
 
 /* ////////////////end admin dash//////////// */
+.tabllle{
+    overflow: hidden;
+}
+

@@ -44,9 +44,9 @@ class CardController extends Controller
         $man = Man::find($id);
 
         Card::create([
-            'title' => $man->titleMan,
-            'price' => $man->priceMan,
-            'img1' => $man->img1Man,
+            'title' => $man->title,
+            'price' => $man->price,
+            'img1' => $man->img1,
             'color' => $request->color,
             'taille' => $request->taille,
             'user_id' => Auth::user()->id

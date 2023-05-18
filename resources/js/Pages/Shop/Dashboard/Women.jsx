@@ -6,7 +6,7 @@ import './Dashboard.css'
 import $ from 'jquery';
 import DataTable from 'datatables.net-dt'
 import AdminMenu from './AdminMenu';
-
+// import 'datatables.net-responsive-dt';
 function AddAll({ auth, women }) {
 
     const { get, data, setData, post, errors, progress, } = useForm({
@@ -26,7 +26,8 @@ function AddAll({ auth, women }) {
             $(tableRef.current).DataTable({
                 lengthChange: false,
                 pageLength: 6,
-                searching: false
+                searching: false,
+                // responsive: true
             });
 
         }
@@ -94,7 +95,7 @@ function AddAll({ auth, women }) {
                                         </form>
                                     </div>
                                     <div className="col-lg-7 col-md-12 mt-lg-0 mt-5 ">
-                                        <table className="table table-bordered table-hover p-3   box_shadow " id='myTable' ref={tableRef}>
+                                        <table className="table table-bordered table-hover p-3   box_shadow tabllle" id='myTable' ref={tableRef}>
                                             <thead>
                                                 <tr className='text-center'>
                                                     <th scope="col">Id</th>

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WomenController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\ManController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -61,7 +62,8 @@ require __DIR__.'/auth.php';
 
 ////////////////MAIN ROUTE////////////
 Route::get('/',  [CardController::class, 'home']);
- Route::get('/dashboard',  [CardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+ Route::get('/dashboard',  [CardController::class, 'dashboard'])->name('dashboard')->middleware('isAdmin');
+ Route::delete('/delete-user/{id}',  [RegisteredUserController::class, 'deleteuser'])->name('delete.user')->middleware('isAdmin');
 ////////////////END MAIN ROUTES////////////
 
 ////////////////WOMEN ROUTES////////////
