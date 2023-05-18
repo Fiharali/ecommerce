@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Card;
 use App\Models\Women;
 use App\Models\Man;
+use App\Models\User;
 use App\Http\Requests\StoreCardRequest;
 use App\Http\Requests\UpdateCardRequest;
 use Illuminate\Support\Facades\Session;
@@ -104,8 +105,10 @@ class CardController extends Controller
     }
     public function dashboard()
     {
-
-        return Inertia::render('Shop/Dashboard/Dashboard');
+        $users=User::all();
+        return Inertia::render('Shop/Dashboard/Dashboard', [
+            'users'=>$users,
+        ]);
 
     }
 }

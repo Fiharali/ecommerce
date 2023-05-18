@@ -16,7 +16,7 @@ function Man({ auth, man, total,card }) {
             <h1 className='p-2 bounce-in-top '> <img src="/imaggess/logo.jpg" width={69} alt="" /></h1>
             {
                 auth.user && auth.user.isAdmin ? (
-                    <div className='text-center p-3 '><button className=' text-center buttone animate__animated  animate__rubberBand animate__delay-1s' onClick={() => { get(route('add.all')) }} ><span>Add Women Clothes</span></button></div>
+                    <div className='text-center p-3 '><button className=' text-center buttone animate__animated  animate__rubberBand animate__delay-1s' onClick={() => { get(route('add.man.clothes')) }} ><span>Add Women Clothes</span></button></div>
                 ) : (
                     <div className='text-center p-3  womenClothes'><span> Man Clothes</span></div>
 

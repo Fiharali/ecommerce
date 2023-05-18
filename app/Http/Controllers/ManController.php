@@ -42,7 +42,7 @@ class ManController extends Controller
      */
     public function create()
     {
-        
+
         $man = Man::all();
         return Inertia::render('Shop/Dashboard/Man', [
             'man' => $man
@@ -158,7 +158,7 @@ class ManController extends Controller
         }
         $man->update();
 
-        return redirect("/add-all");
+        return redirect("/add-man-clothes");
     }
 
     /**
