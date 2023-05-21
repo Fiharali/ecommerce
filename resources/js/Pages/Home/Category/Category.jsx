@@ -13,37 +13,13 @@ function Category() {
         e.preventDefault();
         get(route('women'));
     }
-    ////////////////////////////////
-    function SampleNextArrow(props) {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={className}
-                style={{ ...style, display: "block", background: "red" }}
-                onClick={onClick}
-            />
-        );
-    }
 
-    function SamplePrevArrow(props) {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={className}
-                style={{ ...style, display: "block", background: "green" }}
-                onClick={onClick}
-            />
-        );
-    }
-    // ////////////////////////////////////////////
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
-        initialSlide: 0,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
+        initialSlide: 1,
         responsive: [
             {
                 breakpoint: 1024,
@@ -76,28 +52,7 @@ function Category() {
             <div >
                 <div className="container mt-5">
                     <div className="row px-xl-5 p-3">
-                        {/* <div className="col-lg-3 col-md-4 col-sm-6   pb-3 " onClick={() => { get(route('women')) }} >
-                            <div className={`d-flex align-items-center overflow-hidden    ${darkMode ? 'cate-itemdark' : 'cate-item'}`}>
-                                <div className="overflow-hidden" style={{ width: 100, height: 100 }}>
-                                    <img className="img-fluid" src="/images/women.png" alt="ff" />
-                                </div>
-                                <div className="flex-fill pl-3">
-                                    <h6>Women Clothes</h6>
-                                    <small style={{ color: "blue" }}>100 Products</small>
-                                </div>
-                            </div>
-                        </div> */}
-                        {/* <div className="col-lg-3 col-md-4 col-sm-6   pb-3 ">
-                            <div className={`d-flex align-items-center overflow-hidden    ${darkMode ? 'cate-itemdark' : 'cate-item'}`}>
-                                <div className="overflow-hidden" style={{ width: 100, height: 100 }}>
-                                    <img className="img-fluid" src="/images/man.png" alt />
-                                </div>
-                                <div className="flex-fill pl-3">
-                                    <h6>Women Clothes</h6>
-                                    <small style={{ color: "blue" }}>100 Products</small>
-                                </div>
-                            </div>
-                        </div> */}
+
 
                         <Slider {...settings}>
                             <div className=" px-4  pb-3 " onClick={() => { get(route('women')) }} >
@@ -117,29 +72,40 @@ function Category() {
                                         <img className="img-fluid" src="/images/man.png" alt />
                                     </div>
                                     <div className="flex-fill pl-3">
-                                        <h6>Women Clothes</h6>
+                                        <h6>Man Clothes</h6>
                                         <small style={{ color: "blue" }}>100 Products</small>
                                     </div>
                                 </div>
                             </div>
-                            <div className=" px-4   pb-3 ">
+                            <div className=" px-4   pb-3 " onClick={() => { get(route('kid')) }}>
                                 <div className={`d-flex align-items-center overflow-hidden    ${darkMode ? 'cate-itemdark' : 'cate-item'}`}>
                                     <div className="overflow-hidden" style={{ width: 100, height: 100 }}>
-                                        <img className="img-fluid" src="/images/man.png" alt />
+                                        <img className="img-fluid" src="/imaggess/kid.jpg" alt />
                                     </div>
                                     <div className="flex-fill pl-3">
-                                        <h6>Women Clothes</h6>
+                                        <h6>Kids Clothes</h6>
                                         <small style={{ color: "blue" }}>100 Products</small>
                                     </div>
                                 </div>
                             </div>
-                            <div className=" px-4   pb-3 ">
+                            <div className=" px-4   pb-3 " onClick={() => { get(route('phone')) }}>
                                 <div className={`d-flex align-items-center overflow-hidden    ${darkMode ? 'cate-itemdark' : 'cate-item'}`}>
                                     <div className="overflow-hidden" style={{ width: 100, height: 100 }}>
-                                        <img className="img-fluid" src="/images/man.png" alt />
+                                        <img className="img-fluid" src="/imaggess/phone.jpg" alt />
                                     </div>
                                     <div className="flex-fill pl-3">
-                                        <h6>Women Clothes</h6>
+                                        <h6>Phone </h6>
+                                        <small style={{ color: "blue" }}>100 Products</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className=" px-4   pb-3 " onClick={() => { get(route('pc')) }}>
+                                <div className={`d-flex align-items-center overflow-hidden    ${darkMode ? 'cate-itemdark' : 'cate-item'}`}>
+                                    <div className="overflow-hidden" style={{ width: 100, height: 100 }}>
+                                        <img className="img-fluid" src="/imaggess/pc.jpg" alt />
+                                    </div>
+                                    <div className="flex-fill pl-3">
+                                        <h6>Pc </h6>
                                         <small style={{ color: "blue" }}>100 Products</small>
                                     </div>
                                 </div>

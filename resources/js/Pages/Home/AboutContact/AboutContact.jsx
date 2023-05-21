@@ -8,9 +8,8 @@ function AboutContact() {
                 <div className='container containerr'>
                     <div className="row">
                         <div className="col-lg-6 col-md-12 imgAbout">
-
                         </div>
-                        <div className="col-lg-6 col-md-12  text-light">
+                        <div className="col-lg-6 col-md-12  text-light divcontact">
                             <h1 className='text-center aboutustitle mt-5 '>About Us</h1>
                             <p className='text-justify mt-5 mx-5'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim molestias iusto quo ipsa numquam? Odio dolor perferendis beatae nesciunt
                                 elit. Enim molestias iusto quo ipsa numquam? Odio dolor perferendis beatae nesciunt molestias saepe quos tempore consequuntur quo. Laboriosam aliquam vel nobis placeat!
@@ -22,7 +21,6 @@ function AboutContact() {
                                 <a href="#" className="icon insta p-4 mx-3"><i className="fa-brands fa-instagram"></i></a>
                             </div>
                             <button className=' border border-1 rounded-3 m-3 p-3 contactButton' data-bs-toggle="modal" data-bs-target="#contactmodal" >Contact-Us </button>
-
                         </div>
                     </div>
 

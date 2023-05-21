@@ -5,35 +5,19 @@ use App\Http\Controllers\WomenController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\ManController;
 use App\Http\Controllers\KidController;
+use App\Http\Controllers\PhoneController;
+use App\Http\Controllers\PcController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Middleware\isAdmin;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
+Route::get('/stripe', [PaymentController::class, 'stripe'])->name('stripe')->middleware('auth');
+Route::post('/stripe', [PaymentController::class, 'stripePost'])->name('stripe.post')->middleware('auth');
 
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -44,21 +28,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-// Route::get('/registerr', function () {
-//     return Inertia::render('AuthAuth/Register');
-// })->name('registerr');
-
-
-
-
-// Route::resource('women', WomenController::class, [
-//     'names' => [
-//         'index' => 'women',
-//         'store' => 'admin.product.store',
-//         'update' => 'admin.product.update',
-//         'destroy' => 'admin.product.delete'
-//     ]
-// ]);
 
 
 ////////////////MAIN ROUTE////////////
@@ -114,4 +83,34 @@ Route::delete('/kid-delete/{id}',  [KidController::class, 'destroy'])->name("del
  Route::post('/kid-update/{id}',  [KidController::class, 'update'])->name("kid.update");
 });
 ////////////////end kid ROUTES////////////
+
+///////////////Phone ROUTES////////////
+Route::get('/phone-clothes',  [PhoneController::class, 'index'])->name("phone");
+Route::get('/phone-details/{id}',  [PhoneController::class, 'show'])->name("phone.details");
+Route::middleware('auth')->group(function () {
+    Route::post('/add-phone-to-cart/{id}',  [CardController::class, 'addPhoneToCart'])->name("add.phone.to.cart");
+});
+Route::middleware('isAdmin')->group(function () {
+Route::delete('/phone-delete/{id}',  [PhoneController::class, 'destroy'])->name("delete.phone");
+ Route::get('/add-phone-clothes',  [PhoneController::class, 'create'])->name("add.phone.clothes");
+ Route::post('/add-phone-clothes',  [PhoneController::class, 'store'])->name("add.phone.clothes");
+ Route::get('/phone-edit/{id}',  [PhoneController::class, 'edit'])->name("phone.edit");
+ Route::post('/phone-update/{id}',  [PhoneController::class, 'update'])->name("phone.update");
+});
+////////////////end Phone ROUTES////////////
+
+///////////////Pc ROUTES////////////
+Route::get('/pc-clothes',  [PcController::class, 'index'])->name("pc");
+Route::get('/pc-details/{id}',  [PcController::class, 'show'])->name("pc.details");
+Route::middleware('auth')->group(function () {
+    Route::post('/add-pc-to-cart/{id}',  [CardController::class, 'addPcToCart'])->name("add.pc.to.cart");
+});
+Route::middleware('isAdmin')->group(function () {
+Route::delete('/pc-delete/{id}',  [PcController::class, 'destroy'])->name("delete.pc");
+ Route::get('/add-pc-clothes',  [PcController::class, 'create'])->name("add.pc.clothes");
+ Route::post('/add-pc-clothes',  [PcController::class, 'store'])->name("add.pc.clothes");
+ Route::get('/pc-edit/{id}',  [PcController::class, 'edit'])->name("pc.edit");
+ Route::post('/pc-update/{id}',  [PcController::class, 'update'])->name("pc.update");
+});
+////////////////end Pc ROUTES////////////
 

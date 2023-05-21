@@ -163,11 +163,10 @@ h1 {
 
 /* //////////////////////////// */
 /* //////////////////Hover///////////////// */
-
 .figure {
     position: relative;
     width: 250px;
-    height: 350px ;
+    height: 350px;
     background-color: #000;
     overflow: hidden;
     border: 2px var(--2-color) solid;

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Card;
 use App\Models\Women;
 use App\Models\Man;
+use App\Models\Kid;
+use App\Models\Phone;
 use App\Models\User;
+use App\Models\Pc;
 use App\Http\Requests\StoreCardRequest;
 use App\Http\Requests\UpdateCardRequest;
 use Illuminate\Support\Facades\Session;
@@ -47,6 +50,50 @@ class CardController extends Controller
             'title' => $man->title,
             'price' => $man->price,
             'img1' => $man->img1,
+            'color' => $request->color,
+            'taille' => $request->taille,
+            'user_id' => Auth::user()->id
+        ]);
+        Session::flash('message', "its add to cart");
+    }
+
+    public function addKidToCart(StoreCardRequest $request ,$id)
+    {
+        $kid = Kid::find($id);
+
+        Card::create([
+            'title' => $kid->title,
+            'price' => $kid->price,
+            'img1' => $kid->img1,
+            'color' => $request->color,
+            'taille' => $request->taille,
+            'user_id' => Auth::user()->id
+        ]);
+        Session::flash('message', "its add to cart");
+    }
+    public function addPhoneToCart(StoreCardRequest $request ,$id)
+    {
+        $phone = Phone::find($id);
+
+        Card::create([
+            'title' => $phone->title,
+            'price' => $phone->price,
+            'img1' => $phone->img1,
+            'color' => $request->color,
+            'taille' => $request->taille,
+            'user_id' => Auth::user()->id
+        ]);
+        Session::flash('message', "its add to cart");
+    }
+
+    public function addPcToCart(StoreCardRequest $request ,$id)
+    {
+        $pc = Pc::find($id);
+
+        Card::create([
+            'title' => $pc->title,
+            'price' => $pc->price,
+            'img1' => $pc->img1,
             'color' => $request->color,
             'taille' => $request->taille,
             'user_id' => Auth::user()->id

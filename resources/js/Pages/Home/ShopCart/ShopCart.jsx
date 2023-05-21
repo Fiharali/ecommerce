@@ -20,7 +20,6 @@ function ShopCart({ auth, card, total }) {
                     <i className={` fa-solid fa-cart-shopping fa-xl  ${darkMode ? 'text-light' : 'text-dark'}`} /> <span className="position-absolute top-5 start-95 translate-middle badge rounded-pill bg-danger ">{auth.user ? card.length :null}</span></button>
                 <div className="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabIndex={-1} id="offcanvasScrolling2" aria-labelledby="offcanvasScrollingLabel2">
                     <div className="offcanvas-header">
-                        {/* <h5 className="offcanvas-title text-center" id="offcanvasExampleLabel">Total : {total}</h5> */}
                         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" >
                             <i className="fa-solid fa-xmark fa-xl" style={{ color: '#151515' }} />
                         </button>
@@ -52,6 +51,8 @@ function ShopCart({ auth, card, total }) {
                                 }
                                 <div className='text-center p-5'>
                                     <h1> Total : {total}$</h1>
+                                    <br />
+                                     <Link className="offcanvas-title text-center"  href="/stripe" id="offcanvasExampleLabel"> <button className='btn bg-primary text-white'>Go to pay</button> </Link>
                                 </div>
                             </>
                         ) : (

@@ -20,6 +20,15 @@ function AdminMenu() {
                         <li>
                             <Link href='/add-man-clothes' className='my-2'> {open ? <span className=''><i className="fa-solid fa-person fa-lg" > </i> Man </span> : <span><i className="fa-solid fa-person fa-lg" > </i>  </span>} </Link>
                         </li>
+                        <li>
+                            <Link href='/add-kid-clothes' className='my-2'> {open ? <span className=''><i className="fa-solid fa-child-reaching fa-lg"></i> Kids </span> : <span><i className="fa-solid fa-child-reaching fa-lg"></i>  </span>} </Link>
+                        </li>
+                        <li>
+                            <Link href='/add-phone-clothes' className='my-2'> {open ? <span className=''><i class="fa-solid fa-mobile fa-lg"></i> Kids </span> : <span><i class="fa-solid fa-mobile fa-lg"></i>  </span>} </Link>
+                        </li>
+                        <li>
+                            <Link href='/add-pc-clothes' className='my-2'> {open ? <span className=''><i className="fa-solid fa-laptop fa-lg"></i> Kids </span> : <span><i className="fa-solid fa-laptop fa-lg"></i>  </span>} </Link>
+                        </li>
                     </ul>
                 </div>
             </div>
