@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { Link, useForm, usePage } from '@inertiajs/react';
 import $ from 'jquery';
 
-function Payment() {
+function Payment({auth , total}) {
     const { get, data, setData, post, errors, progress, } = useForm({
-        numCart:'',
+        city: '',
+        line: '',
+        phone: '',
     })
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -14,36 +16,66 @@ function Payment() {
     return (
         <>
             <div className="container">
-                <div className="row">
+                <div className="row d-flex justify-content-center mt-5">
                     <div className="col-md-6 col-md-offset-3 card">
-                        <h1 className='h1'>Stripe Payment Gateway</h1>
+                        <h1 className='h1 text-center'>Stripe Payment Gateway</h1>
                         <form role="form" onSubmit={handleSubmit} method="post" className="form" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
-                            <div className="m-4">
-                                <label className="control-label">Name on Card</label>
-                                <input className="form-control" size={4} type="text" />
+                            <div className="m-3 row">
+                                <div className="col-xs-12 col-md-6 my-2">
+                                    <label className="control-label">Name</label>
+                                    <input autoComplete="off" className="form-control "  type="text"  value={auth.user.name} disabled={1}/>
+                                </div>
+                                <div className="col-xs-12 col-md-6 my-2 ">
+                                    <label className="control-label">Expiration Month</label>
+                                    <input className="form-control "  type="text"  value={auth.user.email} disabled={1}/>
+                                </div>
                             </div>
-                            <div className="m-4">
-                                <label className="control-label">Card Number</label>
-                                <input autoComplete="off" className="form-control card-number" name='numCart' value={data.numCart} onChange={(e) => setData("numCart", e.target.value)}   type="text" />
+                            <div className="m-3 row">
+                                <div className="col-xs-12 col-md-6 my-2">
+                                    <label className="control-label">Phone</label>
+                                    <input autoComplete="off" className="form-control " placeholder="ex. 06XXXXXX"  type="text" value={data.phone} onChange={(e) => setData("phone", e.target.value)} />
+                                </div>
+                                <div className="col-xs-12 col-md-6 my-2">
+                                    <label className="control-label">Adress</label>
+                                    <input autoComplete="off" className="form-control " placeholder="ex. hay rue N"  type="text" value={data.line} onChange={(e) => setData("line", e.target.value)} />
+                                </div>
+                                <div className="col-xs-12 col-md-6 my-2">
+                                    <label className="control-label">City</label>
+                                    <input autoComplete="off" className="form-control " placeholder="ex. casa"  type="text" value={data.city} onChange={(e) => setData("city", e.target.value)} />
+                                </div>
+                                <div className="col-xs-12 col-md-6 my-2 ">
+                                    <label className="control-label">Country</label>
+                                    <input className="form-control " type="text"  value={'Morocco'} disabled={1}/>
+                                </div>
+                            </div>
+                            <div className="m-3 row">
+                                <div className="col-xs-12 col-md-6 my-2">
+                                    <label className="control-label">Name on Card</label>
+                                    <input className="form-control" size={4} type="text"  placeholder='ex. VISA'/>
+                                </div>
+                                <div className="col-xs-12 col-md-6 my-2 ">
+                                    <label className="control-label">Card Number</label>
+                                    <input className="form-control " autoComplete='off' placeholder="MM"  type="number" />
+                                </div>
                             </div>
                             <div className="m-3 row">
                                 <div className="col-xs-12 col-md-4 ">
                                     <label className="control-label">CVC</label>
-                                    <input autoComplete="off" className="form-control card-cvc" placeholder="ex. 311" size={4} type="text" />
+                                    <input autoComplete="off" className="form-control " placeholder="ex. 311"  type="number" />
                                 </div>
                                 <div className="col-xs-12 col-md-4 ">
                                     <label className="control-label">Expiration Month</label>
-                                    <input className="form-control card-expiry-month" placeholder="MM" size={2} type="text" />
+                                    <input className="form-control " placeholder="MM"  type="number" />
                                 </div>
                                 <div className="col-xs-12 col-md-4 ">
                                     <label className="control-label">Expiration Year</label>
-                                    <input className="form-control card-expiry-year" placeholder="YYYY" size={4} type="text" />
+                                    <input className="form-control " placeholder="YYYY"  type="number" />
                                 </div>
 
                             </div>
                             <div className="row m-4">
                                 <div className="col-md-12 ">
-                                    <button className="btn bg-success form-control p-3 text-white" type="submit">Price: ($100) </button><br />
+                                    <button className="btn bg-success form-control p-3 text-white" type="submit">Price: ({total}$) </button><br />
                                 </div>
                             </div>
 

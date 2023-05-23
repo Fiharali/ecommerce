@@ -12,8 +12,15 @@ class PaymentController extends Controller
 {
     public function stripe()
     {
-        return Inertia::render('Payment/Payment');
-        // $total = Auth::user()->cards->sum('price');
+         $total = Auth::user()->cards->sum('price');
+        if($total > 1){
+            return Inertia::render('Payment/Payment', [
+                'total'=>$total,
+            ]);
+        }else{
+            return redirect('/');
+        }
+
         // return view('Pay', [
         //     'total'=>$total,
         // ]);
@@ -22,11 +29,26 @@ class PaymentController extends Controller
     {
         $total = Auth::user()->cards->sum('price');
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $customer = Stripe\Customer::create(array(
+            "address" => [
+
+                    "line1" => $request->line,
+                    "city" => $request->city,
+                    "country" => "Morocco",
+                ],
+            "email" => Auth::user()->email,
+            "name" => Auth::user()->name,
+            "phone" => $request->phone,
+            'source'=>'tok_visa',
+
+         ));
         Stripe\Charge::create([
             'amount'=>$total,
             'currency'=>"usd",
-            'source'=>'tok_visa',
-            'description'=>'test '
+            "customer" => $customer->id,
+            'description'=>'test ',
+
+
         ]);
 
 
@@ -38,15 +60,9 @@ class PaymentController extends Controller
         Card::where('user_id', '=', Auth::user()->id)->delete();
 
 
-        // Session::flash('message','payment success');
 
-        $card = Auth::user()->cards;
-        // $total = Auth::user()->cards->sum('price');
 
-        // return Inertia::render('Home/Home', [
-        //     "card" => $card,
-        //     "total" => $total
-        // ]);
+        Session::flash('message','payment success');
         return redirect('/');
 
     }

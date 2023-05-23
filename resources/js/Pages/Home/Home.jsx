@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react'
-import { Link, useForm } from '@inertiajs/react';
+import { Link, useForm, usePage } from '@inertiajs/react';
 import Menu from './Menu/Menu';
 import Slide1 from './Slide/Slide1';
 import Spicial from './Spicial/Spicial';
@@ -7,6 +7,7 @@ import ShopCart from './ShopCart/ShopCart';
 import AboutContact from './AboutContact/AboutContact';
 import 'animate.css';
 import './Home2.css'
+import Swal from 'sweetalert2'
 import Category from './Category/Category';
 import Flip from 'react-reveal/Flip';
 import Brands from './Brands/Brands';
@@ -18,6 +19,8 @@ function Home({ auth, card, total }) {
 
     const [darkMode, setDarhMode] = useState(false)
 
+    const { flash } = usePage().props
+
     const dark = () => {
         { setDarhMode(!darkMode) }
     }
@@ -27,7 +30,9 @@ function Home({ auth, card, total }) {
     }, [darkMode])
 
 
-
+    flash.message && (
+        alert(' you payed success')
+    )
 
 
     return (
@@ -35,6 +40,7 @@ function Home({ auth, card, total }) {
 
 
         <DarkMode.Provider value={darkMode}>
+
             <div className={` ${darkMode ? 'pageDark' : 'page'}`} id='firstpage'>
                 <h1 className='p-2 rounded-circle'> <img src="/imaggess/logo.jpg" width={69} alt="" className='' /></h1>
                 <Menu auth={auth} />
