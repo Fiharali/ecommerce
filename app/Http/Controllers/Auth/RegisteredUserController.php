@@ -14,6 +14,7 @@ use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Inertia\Response;
 
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -46,8 +47,22 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+        $mail_data = [
 
-        return redirect(RouteServiceProvider::HOME);
+            'reci' => Auth::user()->email,
+            'from' => 'abdelalifihar@gmail.com',
+            'name' => Auth::user()->name,
+            'subject' => 'welcome in our site',
+
+        ];
+        \Mail::send('emailll',$mail_data , function($message) use ($mail_data){
+            $message->to($mail_data['reci'])
+            ->from($mail_data['from'] , $mail_data['name'])
+            ->subject($mail_data['subject']);
+
+    });
+        // return redirect(RouteServiceProvider::HOME);
+        return redirect('/');
     }
     public function deleteuser($id){
          User::find($id)->delete();

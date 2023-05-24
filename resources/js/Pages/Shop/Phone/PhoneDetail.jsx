@@ -148,20 +148,20 @@ function PhoneDetail({ auth, phone, card, total }) {
                                                 </div>
                                                 <div className="col-lg-6 my-3">
                                                     <label>
-                                                        <input type="radio" className='Black' name="taille" value="s" onChange={(e) => setData("taille", e.target.value)} />
-                                                        <span>S</span>
+                                                        <input type="radio" className='Black' name="taille" value="100GB" onChange={(e) => setData("taille", e.target.value)} />
+                                                        <span>100 GB</span>
                                                     </label>
                                                     <label>
-                                                        <input type="radio" className='Black' name="taille" value="m" onChange={(e) => setData("taille", e.target.value)} />
-                                                        <span>M</span>
+                                                        <input type="radio" className='Black' name="taille" value="200GB" onChange={(e) => setData("taille", e.target.value)} />
+                                                        <span>200 GB</span>
                                                     </label>
                                                     <label>
-                                                        <input type="radio" className='Black' name="taille" value="l" onChange={(e) => setData("taille", e.target.value)} />
-                                                        <span>L</span>
+                                                        <input type="radio" className='Black' name="taille" value="300GB" onChange={(e) => setData("taille", e.target.value)} />
+                                                        <span>300 GB</span>
                                                     </label>
                                                     <label>
-                                                        <input type="radio" className='Black' name="taille" value="xl" onChange={(e) => setData("taille", e.target.value)} />
-                                                        <span>XL</span>
+                                                        <input type="radio" className='Black' name="taille" value="400GB" onChange={(e) => setData("taille", e.target.value)} />
+                                                        <span>400 GB</span>
                                                     </label>
                                                     {errors.taille &&
                                                         (<h6 className='text-danger'>The taille is Required</h6>)}

@@ -15,6 +15,8 @@ use Inertia\Inertia;
 use App\Http\Middleware\isAdmin;
 
 
+
+
 Route::get('/stripe', [PaymentController::class, 'stripe'])->name('stripe')->middleware('auth');
 Route::post('/stripe', [PaymentController::class, 'stripePost'])->name('stripe.post')->middleware('auth');
 

@@ -8,8 +8,11 @@ use Inertia\Inertia;
 use App\Models\Order;
 use App\Models\Card;
 use Auth;
+
 class PaymentController extends Controller
 {
+
+
     public function stripe()
     {
          $total = Auth::user()->cards->sum('price');
@@ -60,10 +63,24 @@ class PaymentController extends Controller
         Card::where('user_id', '=', Auth::user()->id)->delete();
 
 
+        $mail_data = [
 
+            'reci' => Auth::user()->email,
+            'from' => 'abdelalifihar@gmail.com',
+            'name' => Auth::user()->name,
+            'subject' => 'payment success',
 
-        Session::flash('message','payment success');
+        ];
+        \Mail::send('emailll',$mail_data , function($message) use ($mail_data){
+            $message->to($mail_data['reci'])
+            ->from($mail_data['from'] , $mail_data['name'])
+            ->subject($mail_data['subject']);
+
+    });
+
+        // Session::flash('message','payment success');
         return redirect('/');
 
     }
+
 }

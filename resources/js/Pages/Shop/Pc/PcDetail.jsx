@@ -127,20 +127,20 @@ function PcDetail({ auth, pc, card, total }) {
                                             <div className="row d-flex justify-content-center mx-5" onSubmit={addPcToCart}>
                                                 <div className="col-lg-6 my-3">
                                                     <label>
-                                                        <input type="radio" className='red' name="color" value="red" onChange={(e) => setData("color", e.target.value)} />
-                                                        <span>Red</span>
+                                                        <input type="radio" className='red' name="color" value="i3" onChange={(e) => setData("color", e.target.value)} />
+                                                        <span>i3</span>
                                                     </label>
                                                     <label>
-                                                        <input type="radio" className='Black' name="color" value="black" onChange={(e) => setData("color", e.target.value)} />
-                                                        <span>Black</span>
+                                                        <input type="radio" className='Black' name="color" value="i5" onChange={(e) => setData("color", e.target.value)} />
+                                                        <span>i5</span>
                                                     </label>
                                                     <label>
-                                                        <input type="radio" className='White' name="color" value="White" onChange={(e) => setData("color", e.target.value)} />
-                                                        <span>White</span>
+                                                        <input type="radio" className='White' name="color" value="i7" onChange={(e) => setData("color", e.target.value)} />
+                                                        <span>i7</span>
                                                     </label>
                                                     <label>
-                                                        <input type="radio" className='Yellow' name="color" value="Yellow" onChange={(e) => setData("color", e.target.value)} />
-                                                        <span>Yellow</span>
+                                                        <input type="radio" className='Yellow' name="color" value="i9" onChange={(e) => setData("color", e.target.value)} />
+                                                        <span>i9</span>
                                                     </label>
                                                     {errors.color &&
                                                         (<h6 className='text-danger'>The color is Required</h6>)}
@@ -148,20 +148,20 @@ function PcDetail({ auth, pc, card, total }) {
                                                 </div>
                                                 <div className="col-lg-6 my-3">
                                                     <label>
-                                                        <input type="radio" className='Black' name="taille" value="s" onChange={(e) => setData("taille", e.target.value)} />
-                                                        <span>S</span>
+                                                        <input type="radio" className='Black' name="taille" value="100GB" onChange={(e) => setData("taille", e.target.value)} />
+                                                        <span>100 GB</span>
                                                     </label>
                                                     <label>
-                                                        <input type="radio" className='Black' name="taille" value="m" onChange={(e) => setData("taille", e.target.value)} />
-                                                        <span>M</span>
+                                                        <input type="radio" className='Black' name="taille" value="200GB" onChange={(e) => setData("taille", e.target.value)} />
+                                                        <span>200 GB</span>
                                                     </label>
                                                     <label>
-                                                        <input type="radio" className='Black' name="taille" value="l" onChange={(e) => setData("taille", e.target.value)} />
-                                                        <span>L</span>
+                                                        <input type="radio" className='Black' name="taille" value="300GB" onChange={(e) => setData("taille", e.target.value)} />
+                                                        <span>300 GB</span>
                                                     </label>
                                                     <label>
-                                                        <input type="radio" className='Black' name="taille" value="xl" onChange={(e) => setData("taille", e.target.value)} />
-                                                        <span>XL</span>
+                                                        <input type="radio" className='Black' name="taille" value="400GB" onChange={(e) => setData("taille", e.target.value)} />
+                                                        <span>400 GB</span>
                                                     </label>
                                                     {errors.taille &&
                                                         (<h6 className='text-danger'>The taille is Required</h6>)}
