@@ -23,7 +23,7 @@ function Women({ auth, women, card, total }) {
 
 
     return (
-        <div className='containerr'>
+        <div className='containerrr'>
 
             <h1 className='p-2 bounce-in-top '> <img src="/imaggess/logo.jpg" width={69} alt="" /></h1>
             {
