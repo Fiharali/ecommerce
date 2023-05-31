@@ -10,7 +10,7 @@ function Payment({ auth, total }) {
 
     const { get, data, setData, post, errors, progress, } = useForm({
         city: '',
-        line: '',
+        address: '',
         phone: '',
     })
     const handleSubmit = (e) => {
@@ -84,7 +84,7 @@ function Payment({ auth, total }) {
                         </div> */}
                     </div>
                     <div className="col-md-12  col-md-offset-3 col-lg-6 card">
-                        <h1 className='h1 text-center'>Stripe Payment Gateway</h1>
+                        <h1 className='h1 text-center'> Payment </h1>
                         <form role="form" onSubmit={handleSubmit} method="post" className="form" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
                             <div className="m-3 row">
                                 <div className="col-xs-12 col-md-6 my-2">
@@ -99,15 +99,15 @@ function Payment({ auth, total }) {
                             <div className="m-3 row">
                                 <div className="col-xs-12 col-md-6 my-2">
                                     <label className="control-label">Phone</label>
-                                    <input autoComplete="off" className="form-control " placeholder="ex. 06XXXXXX" type="text" value={data.phone} onChange={(e) => setData("phone", e.target.value)} />
+                                    <input autoComplete="off" className="form-control " placeholder="ex. 06XXXXXX" type="text" value={data.phone} name='phone' onChange={(e) => setData("phone", e.target.value)} />
                                 </div>
                                 <div className="col-xs-12 col-md-6 my-2">
                                     <label className="control-label">Adress</label>
-                                    <input autoComplete="off" className="form-control " placeholder="ex. hay rue N" type="text" value={data.line} onChange={(e) => setData("line", e.target.value)} />
+                                    <input autoComplete="off" className="form-control " placeholder="ex. hay rue N" type="text" value={data.address} nale="address" onChange={(e) => setData("address", e.target.value)} />
                                 </div>
                                 <div className="col-xs-12 col-md-6 my-2">
                                     <label className="control-label">City</label>
-                                    <input autoComplete="off" className="form-control " placeholder="ex. casa" type="text" value={data.city} onChange={(e) => setData("city", e.target.value)} />
+                                    <input autoComplete="off" className="form-control " placeholder="ex. casa" type="text" value={data.city} name='city' onChange={(e) => setData("city", e.target.value)} />
                                 </div>
                                 <div className="col-xs-12 col-md-6 my-2 ">
                                     <label className="control-label">Country</label>

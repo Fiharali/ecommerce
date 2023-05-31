@@ -11,6 +11,7 @@ import Swal from 'sweetalert2'
 import Category from './Category/Category';
 import Flip from 'react-reveal/Flip';
 import Brands from './Brands/Brands';
+import Promotion from './Promotion/Promotion';
 
 
 
@@ -56,10 +57,12 @@ function Home({ auth, card, total }) {
                 <Slide1 />
                 <Spicial />
                 <Category />
+                <hr className='my-5' />
+                <Promotion />
                 <div id="aboutConatact">
                     <AboutContact />
                 </div>
-
+                <Brands />
                 <div id='footer' className='text-center mt-5'>
                     <p className='p-3'>fiharali &copy; copyright</p>
                 </div>

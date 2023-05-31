@@ -29,6 +29,9 @@ function AdminMenu() {
                         <li>
                             <Link href='/add-pc-clothes' className='my-2'> {open ? <span className=''><i className="fa-solid fa-laptop fa-lg"></i> Kids </span> : <span><i className="fa-solid fa-laptop fa-lg"></i>  </span>} </Link>
                         </li>
+                        <li>
+                            <Link href='/logout' method="post" className='my-2'> {open ? <span className=''><i className="fa-solid fa-right-from-bracket"></i> LogOut </span> : <span><i className="fa-solid fa-right-from-bracket"></i>  </span>} </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

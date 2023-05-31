@@ -98,7 +98,7 @@
 
 /* //////////// end switch dark mode///////////////// */
 
-#footer{
+#footer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,3 +108,5 @@
     font-weight: bolder;
     font-size: xx-large;
 }
+
+

@@ -1,0 +1,23 @@
+/* /////////////////////////CollectionCard//////////////////////// */
+.CollectionCard {
+    height: 250px;
+    background: #e5e5e500;
+    border: 3px #e5e5e5 solid;
+
+    /* box-shadow: 2px 8px 32px 5px rgba(31, 38, 135, 0.137); */
+
+}
+.btn_promotion{
+    border: 5px red solid;
+}
+
+.CollectionCard:hover .btn_promotion{
+    background-color: #ff0000;
+
+}
+/* .CollectionCard img {
+    scale: 1.4;
+
+} */
+
+/* /////////////////////////EndCollectionCard//////////////////////// */

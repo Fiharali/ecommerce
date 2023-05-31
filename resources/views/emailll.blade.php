@@ -350,23 +350,12 @@
                     <tr>
                       <td>
                         <p>Hi there,</p>
-                        <p>Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
-                        {{-- <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
-                          <tbody>
-                            <tr>
-                              <td align="left">
-                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                                  <tbody>
-                                    <tr>
-                                      <td> <a href="http://htmlemail.io" target="_blank">Call To Action</a> </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table> --}}
-                        <p>This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.</p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos hic laborum asperiores suscipit adipisci? Nostrum consequatur illo omnis magnam adipisci, a ex quos quas soluta unde odit numquam illum dolor harum nulla assumenda sed mollitia hic, excepturi neque consequuntur! Hic voluptatem repellendus est expedita quia obcaecati ab ex assumenda corporis.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos hic laborum asperiores suscipit adipisci? Nostrum consequatur illo omnis magnam adipisci, a ex quos quas soluta unde odit numquam illum dolor harum nulla assumenda sed mollitia hic, excepturi neque consequuntur! Hic voluptatem repellendus est expedita quia obcaecati ab ex assumenda corporis.
+                        </p>
                         <p>Good luck! Hope it works.</p>
                       </td>
                     </tr>

@@ -173,9 +173,6 @@ function KidDetail({ auth, kid, card, total }) {
                                                 <i className="fa-solid fa-cart-shopping fa-xl" ></i>
                                             </button>
                                         </form>
-
-
-
                                     </>
                                 )
                             }

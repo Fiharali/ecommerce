@@ -57,6 +57,9 @@ class PaymentController extends Controller
 
         Order::create([
             'amount' => $total,
+            'city' => $request->city,
+            'phone' => $request->phone,
+            'address' => $request->address,
             'user_id' => Auth::user()->id
         ]);
 

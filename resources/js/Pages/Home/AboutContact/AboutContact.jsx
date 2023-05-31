@@ -14,13 +14,13 @@ function AboutContact() {
                             <p className='text-justify mt-5 mx-5'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim molestias iusto quo ipsa numquam? Odio dolor perferendis beatae nesciunt
                                 elit. Enim molestias iusto quo ipsa numquam? Odio dolor perferendis beatae nesciunt molestias saepe quos tempore consequuntur quo. Laboriosam aliquam vel nobis placeat!
                                 <button className='border border-1 ms-5 p-2 contactButton' data-bs-toggle="modal" data-bs-target="#modalAbout">Read More ...</button></p>
-                            <div className="icons mt-5">
+                            <div className="icons mt-4">
                                 <a href="#" className="icon fb p-4 mx-3"><i className="fa-brands fa-facebook-f"></i></a>
                                 <a href="#" className="icon snp p-4 mx-3"><i className="fa-brands fa-snapchat"></i></a>
                                 <a href="#" className="icon wtsp p-4 mx-3"><i className="fa-brands fa-whatsapp"></i></a>
                                 <a href="#" className="icon insta p-4 mx-3"><i className="fa-brands fa-instagram"></i></a>
                             </div>
-                            <button className=' border border-1 rounded-3 m-3 p-3 contactButton' data-bs-toggle="modal" data-bs-target="#contactmodal" >Contact-Us </button>
+                            <button className=' border border-1 rounded-3 m-3  p-3 contactButton' data-bs-toggle="modal" data-bs-target="#contactmodal" >Contact-Us </button>
                         </div>
                     </div>
 
