@@ -15,7 +15,7 @@ function Slide1() {
         speed: 2000,
         autoplaySpeed: 2000,
         cssEase: "linear",
-       
+
     };
 
 
@@ -43,18 +43,29 @@ function Slide1() {
                     <div className="col-lg-7 col-md-12">
                         <div className={`  px-5 mb-lg-5  ${darkMode ? 'slideDark' : ' slide'}`}>
                             <Slider {...settings}>
+
                                 <div>
-                                    <img src="/images/bg5.jpg" alt="" srcset="" />
+                                    <img src="/imaggess/f4.jpg" alt="" srcset="" />
                                 </div>
                                 <div>
-                                    <img src="/images/bg5.jpg" alt="" srcset="" />
+                                    <img src="/imaggess/f5.jpg" alt="" srcset="" />
                                 </div>
                                 <div>
-                                    <img src="/images/bg7.jpg" alt="" srcset="" />
+                                    <img src="/imaggess/f6.jpg" alt="" srcset="" />
                                 </div>
                                 <div>
-                                    <img src="/images/bg5.jpg" alt="" srcset="" />
+                                    <img src="/imaggess/f2.jpg" alt="" srcset="" />
                                 </div>
+                                <div>
+                                    <img src="/imaggess/f1.jpg" alt="" srcset="" />
+                                </div>
+                                <div>
+                                    <img src="/imaggess/f3.jpg" alt="" srcset="" />
+                                </div>
+                                <div>
+                                    <img src="/imaggess/p1.jpg" alt="" srcset="" />
+                                </div>
+
 
 
                             </Slider>

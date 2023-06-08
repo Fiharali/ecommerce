@@ -30,39 +30,53 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
+        $connected = @fsockopen("www.google.com", 80);
+        
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        if ($connected) {
 
-        event(new Registered($user));
 
-        Auth::login($user);
-        $mail_data = [
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
-            'reci' => Auth::user()->email,
-            'from' => 'abdelalifihar@gmail.com',
-            'name' => Auth::user()->name,
-            'subject' => 'welcome in our site',
+            event(new Registered($user));
 
-        ];
-        \Mail::send('emailll',$mail_data , function($message) use ($mail_data){
-            $message->to($mail_data['reci'])
-            ->from($mail_data['from'] , $mail_data['name'])
-            ->subject($mail_data['subject']);
+            Auth::login($user);
+            $mail_data = [
 
-    });
-        // return redirect(RouteServiceProvider::HOME);
-        return redirect('/');
+                'reci' => Auth::user()->email,
+                'from' => 'abdelalifihar@gmail.com',
+                'name' => Auth::user()->name,
+                'subject' => 'welcome in our site',
+
+            ];
+            \Mail::send('emailll',$mail_data , function($message) use ($mail_data){
+                $message->to($mail_data['reci'])
+                ->from($mail_data['from'] , $mail_data['name'])
+                ->subject($mail_data['subject']);
+
+        });
+            return redirect('/');
+        } else {
+            $p = 'fff';
+
+        }
+
+
+
+
+
+
     }
     public function deleteuser($id){
          User::find($id)->delete();
