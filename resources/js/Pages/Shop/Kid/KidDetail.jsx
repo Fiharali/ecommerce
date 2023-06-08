@@ -104,9 +104,9 @@ function KidDetail({ auth, kid, card, total }) {
                         <h1 className='text-center fs-2 p-lg-5 p-3'>{kid.title}</h1>
                         <p className='mx-5 text-justify p-3 text-center'>{kid.discreption}</p>
                         <div className='text-center '>
-                            <span className='text-opacity-25'><del>{kid.oldPrice}</del></span>
+                            <span className='text-opacity-25'><del>{kid.oldPrice} $</del></span>
                             <br />
-                            <span className='fs-4 text-success p-3'> {kid.price}</span>
+                            <span className='fs-4 text-success p-3'> {kid.price}$</span>
                         </div>
                         <div className='text-center pt-5'>
                             {

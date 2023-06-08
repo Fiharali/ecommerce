@@ -99,25 +99,25 @@ function Payment({ auth, total }) {
                             <div className="m-3 row">
                                 <div className="col-xs-12 col-md-6 my-2">
                                     <label className="control-label">Phone</label>
-                                    <input autoComplete="off" className="form-control " placeholder="ex. 06XXXXXX" type="text" value={data.phone} name='phone' onChange={(e) => setData("phone", e.target.value)} />
+                                    <input autoComplete="off" className="form-control " placeholder="ex. 06XXXXXX" type="text" value={data.phone} name='phone' onChange={(e) => setData("phone", e.target.value)} required />
                                 </div>
                                 <div className="col-xs-12 col-md-6 my-2">
                                     <label className="control-label">Adress</label>
-                                    <input autoComplete="off" className="form-control " placeholder="ex. hay rue N" type="text" value={data.address} nale="address" onChange={(e) => setData("address", e.target.value)} />
+                                    <input autoComplete="off" className="form-control " placeholder="ex. hay rue N" type="text" value={data.address} nale="address" onChange={(e) => setData("address", e.target.value)} required/>
                                 </div>
                                 <div className="col-xs-12 col-md-6 my-2">
                                     <label className="control-label">City</label>
-                                    <input autoComplete="off" className="form-control " placeholder="ex. casa" type="text" value={data.city} name='city' onChange={(e) => setData("city", e.target.value)} />
+                                    <input autoComplete="off" className="form-control " placeholder="ex. casa" type="text" value={data.city} name='city' onChange={(e) => setData("city", e.target.value)} required />
                                 </div>
                                 <div className="col-xs-12 col-md-6 my-2 ">
                                     <label className="control-label">Country</label>
-                                    <input className="form-control " type="text" value={'Morocco'} disabled={1} />
+                                    <input className="form-control " type="text" value={'Morocco'} disabled={1}  />
                                 </div>
                             </div>
                             <div className="m-3 row">
                                 <div className="col-xs-12 col-md-6 my-2">
                                     <label className="control-label">Name on Card</label>
-                                    <input className="form-control" size={4} type="text" placeholder='ex. VISA' />
+                                    <input className="form-control" size={4} type="text" placeholder='ex. VISA' required />
                                 </div>
                                 <div className="col-xs-12 col-md-6 my-2 ">
                                     <label className="control-label">Card Number</label>
@@ -127,15 +127,15 @@ function Payment({ auth, total }) {
                             <div className="m-3 row">
                                 <div className="col-xs-12 col-md-4 ">
                                     <label className="control-label">CVC</label>
-                                    <input autoComplete="off" className="form-control " placeholder="ex. 311" type="number" value={cvc} onChange={handleCvc} />
+                                    <input autoComplete="off" className="form-control " placeholder="ex. 311" type="number" value={cvc} onChange={handleCvc} required />
                                 </div>
                                 <div className="col-xs-12 col-md-4 ">
                                     <label className="control-label">Expiration Month</label>
-                                    <input className="form-control " placeholder="MM" type="number" value={mm} onChange={handleMm} />
+                                    <input className="form-control " placeholder="MM" type="number" value={mm} onChange={handleMm} required />
                                 </div>
                                 <div className="col-xs-12 col-md-4 ">
                                     <label className="control-label">Expiration Year</label>
-                                    <input className="form-control " placeholder="YYYY" type="number" value={year} onChange={handleYear} />
+                                    <input className="form-control " placeholder="YYYY" type="number" value={year} onChange={handleYear} required />
                                 </div>
 
                             </div>

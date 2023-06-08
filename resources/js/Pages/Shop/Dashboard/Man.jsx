@@ -119,7 +119,7 @@ function Man({ auth, man }) {
                                                                 <td>{item.title}</td>
                                                                 <td>{item.price}</td>
                                                                 <td ><img src={`/products/${item.img1}`} alt=" " width={65} /></td>
-                                                                <td onClick={() => { get(route('women.details', item.id)) }} className=' align-items-center'><i className="fa-solid fa-circle-info fa-2xl" style={{ color: '#151515' }} />
+                                                                <td onClick={() => { get(route('man.details', item.id)) }} className=' align-items-center'><i className="fa-solid fa-circle-info fa-2xl" style={{ color: '#151515' }} />
                                                                 </td>
                                                             </tr>
                                                         )

@@ -58,7 +58,7 @@ function Category() {
                             <div className=" px-4  pb-3 " onClick={() => { get(route('women')) }} >
                                 <div className={`d-flex align-items-center overflow-hidden    ${darkMode ? 'cate-itemdark' : 'cate-item'}`}>
                                     <div className="overflow-hidden" style={{ width: 100, height: 100 }}>
-                                        <img className="img-fluid" src="/images/women.png" alt="ff" />
+                                        <img className="img-fluid" src="/imaggess/w13.jpg" alt="ff" />
                                     </div>
                                     <div className="flex-fill pl-3">
                                         <h6>Women Clothes</h6>

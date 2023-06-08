@@ -25,7 +25,7 @@ function Women({ auth, women }) {
         if (!$.fn.DataTable.isDataTable(tableRef.current)) {
             $(tableRef.current).DataTable({
                 lengthChange: false,
-                pageLength: 6,
+                pageLength: 3,
                 searching: false,
                 // responsive: true
             });
